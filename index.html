@@ -12,15 +12,7 @@
 <script src="jquery.localscroll-1.2.7-min.js" type="text/javascript"></script> 
 <script src="jquery.scrollTo-1.4.3.1-min.js" type="text/javascript"></script> 
 
-<!-- fancybox -->
-<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-	$('.nav').localScroll({duration:500});
-});
-</script>
+<script src="index.js" type="text/javascript"></script>
 
 <head>
 	<title> michelle hwang </title>
@@ -28,12 +20,10 @@ $(document).ready(function() {
 <body>
 	
 	<div id="container">
-		<section id="home">
-			<a name="page-1"></a>
+		<section id="home" name="page-1">
 			<div id="intro-title">
 			<img src="michelle.jpg" id="self-portrait">
 			</div>
-
 				<br>
 			<div id="intro">
 				<div class="title"> michelle ruby hwang </div> <br>
@@ -43,15 +33,14 @@ $(document).ready(function() {
 					<a href="#page-3">contact</a>
 				</div>
 			</div>
-
-
 		</section>
 
-		<section id="sixtyonea">
-			<a name="page-2"></a>
+		<section id="sixtyonea" name="page-2">
 			<div id="me">
 				<div class="title left">teaching</div>
+				<div id="teaching-data">
 				coming soon ~~~
+				</div>
 			</div>	
 			<div class="nav bottom">
 				<a href="#page-1">home</a> // 
@@ -59,15 +48,14 @@ $(document).ready(function() {
 			</div>
 		</section>
 
-		<section id="contact">
-			<a name="page-3"></a>
+		<section id="contact" name="page-3">
 			<div id="contact-info">
-				<div class="title left">contact</div>
+				<div class="title left large">contact</div>
 				<div id="links">
 					<a href="mailto:michellerubyhwang@gmail.com" class="email">email</a> michellerubyhwang AT gmail DOT com
 					<br>
 					<a href="http://www.linkedin.com/pub/michelle-ruby-hwang/54/116/762" class="linkedin">linkedin</a>
-					<br> 
+					<br>
 					<a href="http://www.github.com/michellehwang" class="github">github</a>
 					<br> 
 					<a href="http://mishao.tumblr.com"class="tumblr">tumblr</a>

@@ -25,7 +25,7 @@ body {
 
 #contact-info .title.left {
 	background: transparent;
-	font-size: 18em;
+	font-size: 16em;
 	width: 45%;
 	display: inline-block;
 }
@@ -170,13 +170,4 @@ td.dir {
 	background: transparent;
 	font-weight: normal;
 	color: white;
-}
-
-@font-face{ 
-	font-family: 'Mission Gothic';
-	src: url('WebFont.eot');
-	src: url('WebFont.eot?#iefix') format('embedded-opentype'),
-	     url('WebFont.woff') format('woff'),
-	     url('WebFont.ttf') format('truetype'),
-	     url('WebFont.svg#webfont') format('svg');
 }

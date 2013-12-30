@@ -1,19 +1,17 @@
 
 body {
-	margin: 0px;
+	margin: 0em;
 }
 
 #container section {
 	min-height: 100%;
-	font-family: Mission Gothic;
 }
-
 
 #home {
 	background: url("trains.jpg") no-repeat fixed center; 
 }
 
-#about-me {
+#sixtyonea {
 	display:block;
 	position: relative;
 	background: url("gplaypattern.png") repeat;
@@ -25,12 +23,26 @@ body {
 	background: url("city.jpg") repeat;
 }
 
+#contact-info .title.left {
+	background: transparent;
+	font-size: 18em;
+	width: 45%;
+	display: inline-block;
+}
+
+#contact-info #links {
+	top: 45%;
+	width: 40%;
+	display: inline-block;
+}
+
 #self-portrait {
-	width: 150px;
+	width: 10em;
 	height: auto;
 	border-radius: 50%;
-	margin-left: 0px;
+	margin-left: 0em;
 	position: fixed;
+	/*z-index: 1;*/
 }
 
 #intro-title {
@@ -41,7 +53,7 @@ body {
 }
 
 #intro {
-	top: 0px;
+	top: 0em;
 	height: 100%;
 	width: 50%;
 	left: 25%;
@@ -53,17 +65,21 @@ body {
 	color: white;
 	text-align: center;
 	display: inline-block;
-	min-height: 710px;
+	min-height: 50em;
 	font-family: 'Carrois Gothic', sans-serif;
+}
+
+#main-nav {
+	text-align: center;
+	font-size: 1em;
 }
 
 .title {
 	font-family: 'Grand Hotel', cursive;
-	padding: 10px;
-	top: 20px;
+	padding: .1em;
 	text-align: center;
 	font-style: italic;
-	font-size: 80px;
+	font-size: 7em;
 }
 
 .left {
@@ -80,16 +96,18 @@ a {
 	position: relative;
 	text-decoration: none;
 	font-weight: lighter;
+	font-size: 2em;
 }
 
 a:hover {
 	background-color: #D00000;
 	color: black;
+	font-weight: bold;
 }
 
 #links a.linkedin:hover {
 	background-color: #2554FF;
-	color: white;	
+	color: white;
 }
 
 #links a.lastfm:hover {
@@ -114,7 +132,7 @@ td.dir {
 	text-align: right;
 }
 
-#my-info {
+#contact-info {
 	display: table-cell;
 	vertical-align: middle;
 	background-color: black;
@@ -128,14 +146,29 @@ td.dir {
 	top:25%;
 }
 
-#about-me, #me, #my-info {
+#about-me, #me, #contact-info {
 	font-family: 'Carrois Gothic', sans-serif;
 }
 
-.nav {
-	bottom: 5px;
-	text-align: center;
+.nav.bottom {
+	bottom: .1em;
+	right: 0em;
 	position: absolute;
+	background: black;
+	color: white;
+	font-size: 1em;
+}
+
+.nav.bottom a {
+	font-family: 'Carrois Gothic', sans-serif;
+	color: red;
+	font-size: 1em;
+}
+
+.nav.bottom a:hover {
+	background: transparent;
+	font-weight: normal;
+	color: white;
 }
 
 @font-face{ 

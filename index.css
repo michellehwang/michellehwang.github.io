@@ -22,7 +22,8 @@ body {
 	display:block;
 	position: relative;
 	z-index: 2;
-	background: url("city.jpg") repeat;
+	top: 300%;
+	background: url("city.jpg") repeat fixed center;
 }
 
 #contact-info .title.left {
@@ -33,7 +34,7 @@ body {
 }
 
 #contact-info #links {
-	top: 45%;
+	/*top: 45%;*/
 	width: 40%;
 	display: inline-block;
 }
@@ -82,15 +83,11 @@ body {
 	padding: .1em;
 	text-align: center;
 	font-style: italic;
-	font-size: 7em;
+	/*font-size: 7em;*/
 }
 
 .left {
 	text-align: left;
-}
-
-.email {
-	font-weight: lighter;
 }
 
 a {
@@ -126,6 +123,7 @@ a:hover {
 	opacity: 1;
 	background-color: #FFFFFF;
 }
+
 table {
 	color: white;
 }

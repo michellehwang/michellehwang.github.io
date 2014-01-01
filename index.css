@@ -23,7 +23,7 @@ body {
 	position: relative;
 	z-index: 2;
 	top: 300%;
-	background: url("city.jpg") repeat fixed center;
+	background: url("city.jpg") no-repeat fixed center;
 }
 
 #contact-info .title.left {

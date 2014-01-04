@@ -4,6 +4,8 @@ $(document).ready(function() {
     $('.small').css('font-size',($(window).width()*.009)+'px');
     $('.medium').css('font-size',($(window).width()*.07)+'px');
     $('.large').css('font-size',($(window).width()*.15)+'px');
+	$("#teaching-data").load("teaching.html"); 
+
 });
 
 $(window).resize(function(){
@@ -11,4 +13,3 @@ $(window).resize(function(){
     $('.medium').css('font-size',($(window).width()*.07)+'px');
     $('.large').css('font-size',($(window).width()*.15)+'px');
 });	
-

@@ -150,10 +150,11 @@ a:hover {
 .nav.top {
 	top: .1em;
 	right: 0em;
-	position: absolute;
+	position: fixed;
 	background: black;
 	color: white;
 	font-size: 1em;
+	z-index: 4;
 }
 
 .nav.top a {

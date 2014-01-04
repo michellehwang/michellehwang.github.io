@@ -8,13 +8,13 @@ body {
 }
 
 #home {
-	background: url("trains.jpg") no-repeat fixed center; 
+	background: url("img/trains.jpg") no-repeat fixed center; 
 }
 
 #sixtyonea {
 	display:block;
 	position: relative;
-	background: url("gplaypattern.png") repeat;
+	background: url("img/gplaypattern.png") repeat;
 	z-index: 2;
 }
 
@@ -22,7 +22,7 @@ body {
 	position: relative;
 	z-index: 2;
 	top: 300%;
-	background: url("city.jpg") no-repeat fixed center;
+	background: url("img/bw.jpg") no-repeat fixed center;
 }
 
 #contact-info .title.left {
@@ -41,7 +41,7 @@ body {
 }
 
 #self-portrait {
-	width: 12em;
+	width: 11.5em;
 	height: auto;
 	border-radius: 50%;
 	margin-left: 0em;

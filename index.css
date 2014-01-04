@@ -84,7 +84,6 @@ body {
 	padding: .1em;
 	text-align: center;
 	font-style: italic;
-	/*font-size: 7em;*/
 }
 
 .left {
@@ -106,6 +105,17 @@ a:hover {
 	font-weight: bold;
 }
 
+a.normal-link {
+	color: white;
+	font-size: 1em;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+a.normal-link:hover {
+	font-weight: normal;
+	text-decoration: underline;
+}
 #links a.email:hover {
 	color: white;
 }
@@ -127,6 +137,11 @@ a:hover {
 #links a.github:hover {
 	opacity: 1;
 	background-color: #FFFFFF;
+}
+
+#links a.resume:hover {
+	opacity: 1;
+	background-color: #00733A;
 }
 
 #contact-info {
@@ -153,7 +168,7 @@ a:hover {
 	position: fixed;
 	background: black;
 	color: white;
-	font-size: 1em;
+	font-size: 1.2em;
 	z-index: 4;
 }
 

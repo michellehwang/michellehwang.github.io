@@ -2,3 +2,14 @@
 	border: none;
 }
 
+#teaching-info {
+	font-family: 'Carrois Gothic', sans-serif;
+	color: black;
+	font-size: 1em;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+

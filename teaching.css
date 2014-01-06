@@ -1,3 +1,6 @@
+#teaching .normal-link {
+	color: black;
+}
 #teaching-data {
 	border: none;
 }
@@ -12,4 +15,31 @@
 	text-decoration: underline;
 }
 
+.bold {
+	font-weight: bold;
+}
 
+.hide {
+	display: none;
+}
+
+#teaching-title, #teaching-menu {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#teaching-menu {
+	padding-left: 2%;
+}
+
+#semester-info {
+	width: 100%;
+	padding: 2%;
+	display: table;
+}
+
+.announcements, .additional {
+	display: table-cell;
+	width: 500px;
+	padding-left: 2%;
+}

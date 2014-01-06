@@ -1,8 +1,4 @@
 $(".semester").hover(
-	function() {
-		$(this).addClass("underline");
-	},
-	function() {
-		$(this).removeClass("underline");
-	}
+	$(this).addClass(".underline"),
+	$(this).removeClass(".underline")
 );

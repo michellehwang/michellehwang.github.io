@@ -1,0 +1,21 @@
+
+html {
+	font-family: 'News Cycle', sans-serif;
+	background: url("geometry.png") repeat;
+
+}
+
+body {
+	left: 5%;
+	position: relative;
+}
+
+#header {
+	font-size: 30px;
+	font-weight: bold;
+	color: #3FB5FF;
+}
+
+.topic {
+	font-weight: bold;
+}

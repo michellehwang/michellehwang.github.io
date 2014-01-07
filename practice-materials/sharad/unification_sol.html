@@ -1,0 +1,128 @@
+
+<!-- saved from url=(0060)http://inst.eecs.berkeley.edu/~cs61a-ti/unification_sol.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><style type="text/css">
+	.code {
+		font-family: "Courier New";
+	}
+</style>
+<style type="text/css"></style><style type="text/css"></style></head><body><h1>Unification and Search Practice Problems Solutions</h1>
+<h2>Unification</h2>
+<ul>
+<li>For the following expressions, determine whether or not they unify; if they do, write the grounded bindings that complete the unification.</li>
+<ol>
+	<li class="code">?x, ?y</li>
+		Yes. <span class="code">{ ?x : ?y }</span>
+	<li class="code">(?x ?y), (a b)</li>
+		Yes. <span class="code">{ ?x : a, ?y : b }</span>
+	<li class="code">(?x 1), (a ?y)</li>
+		Yes. <span class="code">{ ?x : a, ?y : 1 }</span>
+	<li class="code">(?x (?y 1)), ((?y 4) (3 3))</li>
+		No. (We try unifying 1 with 3)
+	<li class="code">(?x (?y 2)), ((?y 5) (3 2))</li>
+		Yes. <span class="code">{ ?x : (3 5), ?y : 3 }</span>
+	<li class="code">(?x (?y ?x)), ((?y 1) (4 (?y 2)))</li>
+		No.
+	<li class="code">(?x (?x ?y)), ((?y 4) ((?y 4) ?y))</li>
+		Yes. <span class="code">{ ?x : (?y 4) }</span>
+	<li class="code">(?x ?y), (1 (?z ?y))</li>
+		Yes. <span class="code">{ ?x : 1, ?y : (?z ?y)}</span>
+</ol>
+<br>
+<li> For the following expressions, write out the sequential recursive calls to unify and their arguments.
+<ol>
+	<li class="code">?x, ?y</li>
+		<div class="code">
+		unify(?x, ?y)	
+		</div>
+	<li class="code">(?x), (?y)</li>
+		<div class="code">
+		unify((?x), (?y))<br>
+		unify(?x, ?y)	
+		</div>
+	<li class="code">(?x 2), (?y 3)</li>
+		<div class="code">
+		unify((?x 2), (?y 3))<br>
+		unify(?x, ?y)<br>
+		unify((2), (3))<br>
+		unify(2, 3) -- fails
+		</div>
+	<li class="code">?x, (?y ?z 3)</li>
+		<div class="code">
+		unify(?x, (?y ?z 3))<br>
+		</div>
+	<li class="code">(1 2 3), ?z</li>
+		<div class="code">
+		unify((1 2 3), ?z)<br>
+		</div>
+	<li class="code">((1 2 3) ?y), (?z 4)</li>
+		<div class="code">
+		unify((1 2 3), ?z)<br>
+		unify((?y), (4))<br>
+		unify(?y, 4)
+		</div>
+</ol>
+</li></ul>
+<br>
+<h2>Search</h2>
+<ul>
+<li> Here is a logic program.
+<div class="code">
+(fact (contains ?first-item (?first-item . ?rest)))<br>
+(fact (contains ?item (?first-item . ?rest))<br>
+      (contains ?item ?rest))<br>
+</div>
+<br>
+For the following queries, write out the series of the facts that are successfully unified to get the result of the query.
+<ol>
+	<li class="code">(query (contains 1 (1 2 3))</li>
+		<div class="code">
+		(query (contains 1 (1 2 3)) is unified with (fact (contains ?first-item (?first-item . ?rest)))
+		</div>
+	<li class="code">(query (contains 2 (1 2 3))</li>
+		<div class="code">
+		(query (contains 2 (1 2 3)) is unified with (fact (contains ?item (?first-item . ?rest)))<br>
+		(query (contains 2 (2 3)) is unified with (fact (contains ?first-item2 (?first-item2 . ?rest2)))
+		</div>
+	<li class="code">(query (contains 3 (1 2 3))</li>
+		<div class="code">
+		(query (contains 3 (1 2 3)) is unified with (fact (contains ?item (?first-item . ?rest)))<br>
+		(query (contains 3 (2 3)) is unified with (fact (contains ?item2 (?first-item2 . ?rest2)))<br>
+		(query (contains 3 (3)) is unified with (fact (contains ?first-item3 (?first-item3 . ?rest3)))
+		</div>
+	<li class="code">(query (contains 4 (1 2 3))</li>
+		<div class="code">
+		(query (contains 3 (1 2 3)) is unified with (fact (contains ?item (?first-item . ?rest)))<br>
+		(query (contains 3 (2 3)) is unified with (fact (contains ?item2 (?first-item2 . ?rest2)))<br>
+		(query (contains 4 (3)) is unified with (fact (contains ?item3 (?first-item3 . ?rest3)))<br>
+		(query (contains 4 ()) fails
+		</div>
+</ol>
+<br>
+</li><li> Here is another logic program.
+<div class="code">
+(fact (every-other () ()))<br>
+(fact (every-other (?x) (?x)))<br>
+(fact (every-other (?a ?b . ?l_rest) (?a . ?r_rest))<br>
+      (every-other ?l_rest ?r_rest))<br>
+</div>
+<br>
+For the following queries, write out the series of the facts that are successfully unified to get the result of the query.
+<ol>
+	<li class="code">(query (every-other () ?x))</li>
+		<div class="code">
+		(query (every-other () ?x) is unified with (fact (every-other () ()))
+		</div>
+	<li class="code">(query (every-other (frodo gandalf) ?x))</li>
+		<div class="code">
+		(query (every-other (frodo gandalf) ?x) is unified with (fact (every-other (?a ?b . ?l_rest) (?a . ?r_rest)))<br>
+		(query (every-other () ?r_rest) is unified with (fact (every-other () ()))
+		</div>
+	<li class="code">(query (every-other (frodo merry sam pippin) ?x))</li>
+		<div class="code">
+		(query (every-other (frodo merry sam pippin) ?x) is unified with (fact (every-other (?a ?b . ?l_rest) (?a . ?r_rest)))<br>
+		(query (every-other (sam pippin) ?r_rest) is unified with (fact (every-other (?a2 ?b2 . ?l_rest2) (?a2 . ?r_rest2)))<br>
+		(query (every-other () ?r_rest2) is unified with (fact (every-other () ()))
+		</div>
+</ol>
+</li></ul>
+</body></html>

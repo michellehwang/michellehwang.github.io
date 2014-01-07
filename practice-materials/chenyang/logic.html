@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="css/codemirror.css" />
+<link rel="stylesheet" type="text/css" href="css/isicp.css" />
+<link rel="stylesheet" type="text/css" href="css/theme.css" />
+
+<script src="js/helper.js"></script>
+<script src="js/codemirror.js"></script>
+<script src="js/scheme-mode.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/coding-logic.js"> </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43609447-1', 'berkeley.edu');
+  ga('send', 'pageview');
+</script>
+
+
+<script>
+$(function() {
+  RELEASE_TIME = 1386979200; // UNIX time in milliseconds
+  if ((new Date).getTime() / 1000 < RELEASE_TIME) {
+    $(".solution").hide();
+  }
+})
+</script>
+
+<h2> Review - Logic </h2>
+
+<hr>
+
+<p>Remember that every code prompt in this worksheet is interactive! Type in Logic
+code, and press <tt>Ctrl-Enter</tt> to evaluate facts and queries.</p>
+
+<h4> On Append </h4>
+
+<p>Remember the <tt>append</tt> relation that we saw in class:</p>
+
+<div id="append">
+(fact (append () ?lst ?lst))
+(fact (append (?f . ?r1) ?lst (?f . ?r2))
+      (append ?r1 ?lst ?r2))
+</div>
+<script>prompt("append");</script>
+
+<div id="append-query">
+(query (append ?what (3 4) (1 2 3 4)))
+</div>
+<script>
+  prompt("append-query");
+  addDep("append-query", ["append"])
+</script>
+
+<p>Write a fact <tt>last</tt>, which checks if an item is the last element of a
+list.</p>
+
+<div id="last">
+;; YOUR CODE HERE
+
+(query (last (1 2 3) 3))  ; Success!
+(query (last (1 2 3) ?x)) ; Success! ; ?x: 3c
+</div>
+<button id="toggleButton1" class="solution">Show Solution</button>
+<script>
+  prompt("last");
+  addDep("last", ["append"]);
+  $("#toggleButton1").click(function () {
+    var e = editorOf["last"];
+    e.setValue("(fact (last ?lst ?x)\n      (append ?front (?x) ?lst))\n(query (last (1 2 3) 3))  ; Success!\n(query (last (1 2 3) ?x)) ; Success! ; ?x: 3");
+    e.getOption("onBlur")();
+  })
+</script>
+
+<p>The palindrome relation indicates that a list is the same backward and
+forward. Write palindrome using only append.</p>
+
+<div id="palindrome">
+;; YOUR CODE HERE
+
+(query (palindrome a b c a))      ; Failed.
+(query (palindrome a b c b a))    ; Success!
+(query (palindrome a b b a))      ; Success!
+(query (palindrome a ?x c b ?y))  ; Success! ; ?x: b ; ?y: a
+</div>
+<button id="toggleButton2" class="solution">Show Solution</button>
+<script>
+  prompt("palindrome");
+  addDep("palindrome", ["append"]);
+  $("#toggleButton2").click(function () {
+    var e = editorOf["palindrome"];
+    e.setValue("(fact (palindrome))\n(fact (palindrome ?a))\n(fact (palindrome ?a . ?rest)\n      (append ?imm (?a) ?rest)\n      (palindrome . ?imm))\n(query (palindrome a b c a))      ; Failed.\n(query (palindrome a b c b a))    ; Success!\n(query (palindrome a b b a))      ; Success!\n(query (palindrome a ?x c b ?y))  ; Success! ; ?x: b ; ?y: a");
+    e.getOption("onBlur")();
+  })
+</script>
+
+
+<h4> A New Subset </h4>
+
+<p>Remember the <tt>subsets</tt> relation that we wrote in the homework which finds
+a list of all the subsets of a given set? Let's now write a
+relation <tt>subset</tt> that checks if a set is a subset of another set. We
+will represent a set as a sorted list.</p>
+
+<div id="subset">
+;; YOUR CODE HERE
+
+(query (subset () (hi)))             ; Success!
+(query (subset (b d e) (a b c d e))) ; Success!
+(query (subset (b c f) (a b c d e))) ; Faliure.
+(query (subset ?set (1 2 3)))        ; Success!
+; ?set: ()  ; ?set: (3)   ; ?set: (2)   ; ?set: (2 3)
+; ?set: (1) ; ?set: (1 3) ; ?set: (1 2) ; ?set: (1 2 3)
+</div>
+<button id="toggleButton3" class="solution">Show Solution</button>
+<script>
+  prompt("subset");
+  addDep("subset", ["append"]);
+  $("#toggleButton3").click(function () {
+    var e = editorOf["subset"];
+    e.setValue("(fact (subset () ()))\n(fact (subset ?set (?a . ?rest))\n      (subset ?set ?rest))\n(fact (subset (?a . ?rest-set) (?a . ?rest))\n      (subset ?rest-set ?rest))\n(query (subset () (hi)))             ; Success!\n(query (subset (b d e) (a b c d e))) ; Success!\n(query (subset (b c f) (a b c d e))) ; Faliure.\n(query (subset ?set (1 2 3)))        ; Success!\n; ?set: ()  ; ?set: (3)   ; ?set: (2)   ; ?set: (2 3)\n; ?set: (1) ; ?set: (1 3) ; ?set: (1 2) ; ?set: (1 2 3)");
+    e.getOption("onBlur")();
+  })
+</script>
+
+<p>Notice that by just stating what a subset is, we can get logic to enumerate all
+subsets of a set for us. How cool is that!</p>
+
+
+<h4> Tree Manipulation </h4>
+<p>We shall now represent trees in logic! Suppose we represent a tree by a list
+  <tt> (entry left right)</tt> and represent a null tree by the empty list
+(). We also have a few relations that extracts the left, right and entry of a
+tree.</p>
+
+<p>Write relations for <tt>in-tree</tt>, which checks if a tree has a specific
+entry.</p>
+
+<div id="treedef">
+(fact (t-left (?entry ?left ?right) ?left))
+(fact (t-right (?entry ?left ?right) ?right))
+(fact (t-entry (?entry ?left ?right) ?entry))
+
+(fact (bst (3 (1 ()
+                 (2 ()
+                    ()))
+              (5 (4 ()
+                    ())
+                 (6 ()
+                    ())))))
+; Represents this tree:
+;  -3-
+; /   \
+; 1   5
+;  \ / \
+;  2 4 6
+
+(query (t-entry ?left-tree ?what)
+       (t-left ?bst ?left-tree)
+       (bst ?bst))
+
+;; YOUR CODE HERE
+
+(fact (in-bst ?x)
+      (bst ?bst)
+      (in-tree ?bst ?x))
+
+(query (in-bst 4))  ; Success!
+(query (in-bst 7))  ; Failure.
+(query (in-bst ?x)) ; Success!
+; ?x: 3 ; ?x: 1 ; ?x: 2 ; ?x: 5 ; ?x: 4 ; ?x: 6
+</div>
+<button id="toggleButton4" class="solution">Show Solution</button>
+<script>
+  prompt("treedef");
+  $("#toggleButton4").click(function () {
+    var e = editorOf["treedef"];
+    e.setValue("(fact (t-left (?entry ?left ?right) ?left))\n(fact (t-right (?entry ?left ?right) ?right))\n(fact (t-entry (?entry ?left ?right) ?entry))\n\n(fact (bst (3 (1 ()\n                 (2 ()\n                    ()))\n              (5 (4 ()\n                    ())\n                 (6 ()\n                    ())))))\n; Represents this tree:\n;  -3-\n; /   \\n; 1   5\n;  \ / \\n;  2 4 6\n\n(query (t-entry ?left-tree ?what)\n       (t-left ?bst ?left-tree)\n       (bst ?bst))\n\n(fact (in-tree ?tree ?x)\n      (t-entry ?tree ?x))\n(fact (in-tree ?tree ?x)\n      (t-left ?tree ?left)\n      (in-tree ?left ?x))\n(fact (in-tree ?tree ?x)\n      (t-right ?tree ?right)\n      (in-tree ?right ?x))\n\n(fact (in-bst ?x)\n      (bst ?bst)\n      (in-tree ?bst ?x))\n\n(query (in-bst 4))  ; Success!\n(query (in-bst 7))  ; Failure.\n(query (in-bst ?x)) ; Success!\n; ?x: 3 ; ?x: 1 ; ?x: 2 ; ?x: 5 ; ?x: 4 ; ?x: 6");
+    e.getOption("onBlur")();
+  })
+</script>
+
+<p>Can you tell what order the leaves of the tree appear in? Hint: do you know what
+kind of search the logic interpreter does when it tries to match patterns?</p>
+
+<script>
+var todo = Object.keys(editorOf);
+
+(function proc() {
+  if (todo.length == 0) {
+    return;
+  }
+  try {
+    var first = todo.shift();
+    editorOf[first].getOption("onBlur")().then(proc);
+  } catch (err) {
+    proc();
+  }
+})();
+</script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</head>
+</html>
+
+<!--
+<div id="palindrome">
+;; YOUR CODE HERE
+
+</div>
+<button id="toggleButton2" class="solution">Show Solution</button>
+<script>
+  prompt("palindrome");
+  addDep("palindrome", ["append"]);
+  $("#toggleButton2").click(function () {
+    var e = editorOf["palindrome"];
+    e.setValue("");
+    e.getOption("onBlur")();
+  })
+</script>
+-->

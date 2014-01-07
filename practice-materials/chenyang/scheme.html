@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="css/codemirror.css" />
+<link rel="stylesheet" type="text/css" href="css/isicp.css" />
+<link rel="stylesheet" type="text/css" href="css/theme.css" />
+
+<script src="js/helper.js"></script>
+<script src="js/codemirror.js"></script>
+<script src="js/scheme-mode.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/coding.js"> </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43609447-1', 'berkeley.edu');
+  ga('send', 'pageview');
+</script>
+
+
+<script>
+$(function() {
+  RELEASE_TIME = 1386979200; // UNIX time in milliseconds
+  if ((new Date).getTime() / 1000 < RELEASE_TIME) {
+    $(".solution").hide();
+  }
+})
+</script>
+
+<h2> Review - Scheme Scoping and Tail Calls</h2>
+<hr>
+
+<p> Solutions to the tail calls are at the end
+of <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php">lab
+10</a>, the first scoping question is 4a of
+the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/exams/61a-fa12-final-solutions.pdf">Fall
+2012 final</a>, and the environment diagram questions
+are <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa12/disc/disc11_env_sol.pdf">here</a>. </p>
+
+<h4> Tail Calls </h4>
+
+<p> Write a tail recursive function <tt>last</tt>, which takes in a list and returns the last
+  element of the list.</p>
+
+<div id="last">
+(define (last s)
+  'Your-Code-Here)
+
+(last '(1 2 3 4 5)) ; 5
+</div>
+<script>
+  prompt("last");
+</script>
+
+<p> Write the tail recursive version of a function that returns the nth
+fibonacci number. It might be beneficial to try writing a normal recursive
+solution and/or a iterative Python version first.</p>
+<div id="fib">
+(define (fib n)
+  'Your-Code-Here)
+
+(fib 10) ; 55
+</div>
+<script>
+  prompt("fib");
+</script>
+
+<p> Write a tail-recursive function reverse that takes in a Scheme list a
+  returns a reversed copy. Hint: use a helper function! </p>
+<div id="reverse">
+(define (reverse lst)
+  'Your-Code-Here)
+
+(reverse '(1 2 3 4)) ; (4 3 2 1)
+(reverse '(1))       ; (1)
+</div>
+<script>
+  prompt("reverse");
+</script>
+
+<p> Write a tail-recursive function that inserts number n into a sorted list of
+  numbers, s. Hint: Use the built-in scheme function append. </p>
+<div id="insert">
+(define (insert n s)
+  'Your-Code-Here)
+
+(insert 3 '(1 2))   ; (1 2 3)
+(insert 2 '(1 3 4)) ; (1 2 3 4)
+(insert 1 '(2))     ; (1 2)
+</div>
+<script>
+  prompt("insert");
+</script>
+
+<h4> Scoping </h4>
+
+Write the value of the scheme expression <tt>(f 7)</tt> after evaluating the
+define expressions below:
+
+<div id="mu">
+(define j
+  (mu (c k)
+    (if (< c n)
+        (j (+ c 2) (- k 1))
+         k)))
+
+(define (f n)
+  (define c n)
+  (j 0 0))
+</div>
+<script>
+  makeStatic("mu");
+</script>
+
+<p>Draw the environment diagram for the following code, ﬁrst with Lexical
+  Scoping, and then with Dynamic Scoping. </p>
+
+<h4> 1. </h4>
+<pre>
+x = 10
+def foo(x):
+    return x * bar(2)
+def bar(y):
+    return y + x
+foo(3)
+</pre>
+
+
+<h4> 2. </h4>
+<pre>
+def make_counter(x):
+    def count(m):
+        nonlocal x
+        if m == 'inc':
+            x += 1
+        elif m== 'count':
+            return x
+    return count
+c1 = make_counter(5)
+c2 = make_counter(7)
+c1('inc')
+c1('inc')
+c1('count')
+</pre>
+
+
+
+<script>
+var todo = Object.keys(editorOf);
+
+(function proc() {
+  if (todo.length == 0) {
+    return;
+  }
+  try {
+    var first = todo.shift();
+    editorOf[first].getOption("onBlur")().then(proc);
+  } catch (err) {
+    proc();
+  }
+})();
+</script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</head>
+</html>

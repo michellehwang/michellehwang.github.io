@@ -21,6 +21,12 @@ $(document).ready(function() {
 		function(event) { $(event.target).removeClass("underline") }
 	);
 
+	$("#arrow a").hover(
+		function(event) { 
+			$("#scroll").removeClass("hide") },
+		function(event) { 
+			$("#scroll").addClass("hide") }
+	);
 
 });
 

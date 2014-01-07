@@ -82,15 +82,32 @@ body {
 }
 
 #arrow {
-	font-size: 5em;
+	/*bottom: -100%;*/
+	top: 30%;
+	position: relative;
+	font-size: 3em;
 	color: white;
 	bottom: 2%;
-	/*position: absolute;*/
+}
+
+#arrow a {
+	color: white;
+	background-color: transparent;
+}
+
+#arrow a:hover {
+	text-decoration: none;
+	font-weight: normal;
+	color: red	;
+}
+
+#scroll {
+	color: white;
+	font-size: .2em;
 }
 
 #main-nav {
-	text-align: left;
-	padding-left: 7%;
+	text-align: middle;
 	font-size: 1em;
 }
 

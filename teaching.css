@@ -14,6 +14,7 @@
 #teaching-title {
 	right: 0%;
 	position: relative;
+	padding-right: 4%;
 }
 #teaching-menu {
 	left: 0%;
@@ -38,16 +39,12 @@
 	text-decoration: underline;
 }
 
-.bold {
+.bold, .hover-bold {
 	font-weight: bold;
 }
 
 .hide {
 	display: none;
-}
-
-#teaching-menu {
-	padding-left: 4%;
 }
 
 #semester-info {

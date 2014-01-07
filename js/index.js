@@ -17,8 +17,8 @@ $(document).ready(function() {
 	});
 
 	$(".semester").hover(
-		function(event) { $(event.target).addClass("underline") },
-		function(event) { $(event.target).removeClass("underline") }
+		function(event) { $(event.target).addClass("hover-bold") },
+		function(event) { $(event.target).removeClass("hover-bold") }
 	);
 
 	$("#arrow a").hover(

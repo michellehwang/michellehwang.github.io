@@ -105,14 +105,12 @@ a {
 	text-align: center;
 	position: relative;
 	text-decoration: none;
-	font-weight: lighter;
 	font-size: 1.5em;
 }
 
 a:hover {
 	background-color: #D00000;
 	color: black;
-	font-weight: bold;
 }
 
 a.normal-link {

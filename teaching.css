@@ -29,7 +29,9 @@
 	font-size: 1em;
 	width: 55%;
 	left: 26%;
-	position: relative;
+	position: absolute;
+	display: table;
+	vertical-align: middle;
 }
 
 .underline {

@@ -9,6 +9,9 @@
 	font-family: 'Carrois Gothic', sans-serif;
 	color: black;
 	font-size: 1em;
+	width: 55%;
+	left: 24%;
+	position: relative;
 }
 
 .underline {

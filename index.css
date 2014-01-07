@@ -25,10 +25,17 @@ body {
 	background: url("img/bw.jpg") no-repeat fixed center;
 }
 
-#contact-info .title.left {
+#contact-container {
+	left: 25%;
+	position: relative;
+	vertical-align: middle;
+	display: table-cell
+}
+
+#contact-info .title {
+	left: 25%;
 	background: transparent;
-	font-size: 16em;
-	width: 33%;
+	width: 20%;
 	display: table-cell;
 	vertical-align: middle;
 }
@@ -74,6 +81,13 @@ body {
 	font-family: 'Carrois Gothic', sans-serif;
 }
 
+#arrow {
+	font-size: 5em;
+	color: white;
+	bottom: 2%;
+	/*position: absolute;*/
+}
+
 #main-nav {
 	text-align: left;
 	padding-left: 7%;
@@ -82,7 +96,6 @@ body {
 
 .title {
 	font-family: 'Grand Hotel', cursive;
-	padding: .1em;
 	text-align: center;
 	font-style: italic;
 }
@@ -98,7 +111,7 @@ a {
 	position: relative;
 	text-decoration: none;
 	font-weight: lighter;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 a:hover {
@@ -175,7 +188,7 @@ a.normal-link:hover {
 }
 
 .nav.top a {
-	/*font-family: 'Carrois Gothic', sans-serif;*/
+	font-family: 'Carrois Gothic', sans-serif;
 	color: red;
 	font-size: 1em;
 }

@@ -43,6 +43,10 @@
 	font-weight: bold;
 }
 
+.semester.bold {
+	color: red;
+}
+
 .hide {
 	display: none;
 }

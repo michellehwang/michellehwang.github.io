@@ -1,6 +1,6 @@
 
 <html>
-	<title>Michelle Hwang // CS61A</title>
+	<title>michelle hwang // CS61A</title>
 	<link rel="shortcut icon" href="../img/triangle.ico">
 
 	<link rel="stylesheet" type="text/css" href="../css/cs61a.css">
@@ -17,7 +17,10 @@
 	<script src="../js/highlight.pack.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 <body>
-
+<div class="nav top">
+	<a href="http://www.michellerubyhwang.com">home</a> // 
+	<a href="#tuples">tuples</a> // 
+</div>
 <section id="tuples" name="m-tuples">
 	<div class="topic">tuples</div>
 	<div class="question-wrapper">
@@ -55,6 +58,31 @@ def tuple_replace(tup, n):
 	return gen
 
 </code></pre>
+		</div>		
+</section>
+
+<section id="tuples" name="m-tuples">
+	<div class="topic">environment diagrams</div>
+	<div class="question-wrapper">
+		<div class="question">
+			Draw the environment diagram.
+		</div>
+		<div class="template">
+<pre><code>
+def yak(zebra):
+	return 20 // zebra
+def llama(alpaca):
+	zebra = 0
+	def yak(zebra):
+		return alpaca(zebra)
+	return yak
+
+>>> llama(yak)(4)
+</code></pre>
+		</div>
+	<button class="toggle">toggle solution</button>
+		<div class="solution hide">
+click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)%3A%0A++++return+20+//+zebra%0Adef+llama(alpaca)%3A%0A++++zebra+%3D+0%0A++++def+yak(zebra)%3A%0A++++++++return+alpaca(zebra)%0A++++return+yak%0A%0A%3E%3E%3E+llama(yak)(4)&mode=edit&cumulative=true&py=3">here</a> for the solution
 		</div>		
 </section>
 

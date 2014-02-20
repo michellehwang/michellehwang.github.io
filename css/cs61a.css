@@ -1,5 +1,5 @@
 html {
-	background: url("../img/stardust.png") repeat; 
+	background: url("../img/escheresque_ste.png") repeat; 
 }
 
 body {
@@ -16,6 +16,7 @@ body {
 	font-family: 'Grand Hotel', cursive;
 	font-size: 3em;
 	/*background-color: white;*/
+	/*color: #474949;*/
 	color: white;
 	opacity: .9;
 }
@@ -23,6 +24,7 @@ body {
 .question {
 	font-family: 'Carrois Gothic', sans-serif, bold;
 	/*font-weight: bold;*/
+	color:  #8abeb7;
 	font-size: 1.2em;
 }
 .template {
@@ -55,7 +57,7 @@ body {
 
 .nav.top a {
 	font-family: 'Carrois Gothic', sans-serif;
-	color: red;
+	color:  #8abeb7;
 	text-decoration: none;
 	font-size: 1em;
 }

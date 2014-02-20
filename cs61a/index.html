@@ -16,7 +16,7 @@
     <!-- end fonts -->
 
 
-    <link rel="stylesheet" href="../styles/obsidian.css">
+    <link rel="stylesheet" href="../styles/rainbow.css">
     <script src="../js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -39,8 +39,7 @@
             Define tuple_replace, which takes a tuple TUP and a number N, and returns a function with input function FN that replaces the elements N to len(TUP) - 1 with those same elements, now applied with FN. If N does not exist in the tuple, return the tuple unchanged.
         </div>
         <div class="template">
-<pre><code>
-def tuple_replace(tup, n):
+<pre><code>def tuple_replace(tup, n):
     '''
     >>> add_four = lambda x : x + 4
     >>> tuple_replace(orig_tup, 4)(add_four)
@@ -54,8 +53,7 @@ def tuple_replace(tup, n):
         </div>
     <button class="toggle">toggle solution</button>
         <div class="solution hide">
-<pre><code>
-def tuple_replace(tup, n):
+<pre><code>def tuple_replace(tup, n):
     def gen(fn):
         count, result, apply = 0, (), False
         while count < len(tup):
@@ -82,8 +80,7 @@ def tuple_replace(tup, n):
             Draw the environment diagram.
         </div>
         <div class="template">
-<pre><code>
-def yak(zebra):
+<pre><code>def yak(zebra):
     return 20 // zebra
 def llama(alpaca):
     zebra = 0
@@ -105,24 +102,20 @@ click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)
     <div class="topic">lists</div>
     <div class="question-wrapper">
         <div class="question">
-            Justin Bieber's song "Baby" repeats the word "baby" 55 times. Vampire Weekend's song "Diane Young" repeats the word "baby" 64 times. <br>
-
+            Justin Bieber's song "Baby" repeats the word "baby" 55 times. Vampire Weekend's song "Diane Young" repeats the word "baby" 64 times.
             Write a function find_ratio(inp, word) such that, given any string, will return you the ratio between one word and the rest of the string. <br>
 
             Assume the strings are provided with no punctuation and in all lowercase letters. <br>
 
-            Note: calling VAR_NAME.split() where VAR_NAME is a string will return you a list of each word
+            Note: calling VAR_NAME.split() where VAR_NAME is a string will return you a list of each word<br>
             example: 
-            <pre><code>
->>> diane_young = "baby baby baby baby right on time"
->>> diane_young.split() = ["baby", "baby", "baby", "baby", "right", "on", "time"]
-            </code></pre>
+            <pre><code>>>> diane_young = "baby baby baby baby right on time"
+>>> diane_young.split() = ["baby", "baby", "baby", "baby", "right", "on", "time"]</code></pre>
 
 
         </div>
         <div class="template">
-<pre><code>
-def find_ratio(inp, word):
+<pre><code>def find_ratio(inp, word):
     """
     >>> diane_young = "baby baby baby baby right on time"
     >>> find_ratio(diane_young, "baby")
@@ -130,23 +123,21 @@ def find_ratio(inp, word):
     >>> baby = "like baby baby baby no like baby baby baby oh"
     >>> find_ratio(baby, "baby")
     6 to 4
-    ""”
+    """
 </code></pre>
         </div>
     <button class="toggle">toggle solution</button>
         <div class="solution hide">
-<pre><code>
-def find_ratio(inp, word):
+<pre><code>def find_ratio(inp, word):
     inp_as_words = inp.split()
     count = 0
     for input in inp_as_words:
         if input == word:
     count += 1
-    return str(count) + “ to “ + str(len(inp_as_words))
+    return str(count) + " to " + str(len(inp_as_words))
 
     # ONE LINE SOLUTION
-    return str(len([x for x in inp.split() if x == word])) + “ to ” + str(len(inp.split()))
-
+    return str(len([x for x in inp.split() if x == word])) + " to " + str(len(inp.split()))
 </code></pre>
         </div>
     </div> 

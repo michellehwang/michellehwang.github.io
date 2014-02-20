@@ -4,6 +4,7 @@
 
 #teaching #header {
 	display: table;	
+	top: 9%;
 }
 
 #teaching-title, #teaching-menu {
@@ -12,9 +13,11 @@
 }
 
 #teaching-title {
+	top: 5%;
+	left: 4%;
 	right: 0%;
 	position: relative;
-	padding-right: 4%;
+	padding-right: 6%;
 }
 #teaching-menu {
 	left: 0%;

@@ -1,34 +1,44 @@
 
 <html>
-	<title>michelle hwang // CS61A</title>
-	<link rel="shortcut icon" href="../img/triangle.ico">
+    <link rel="shortcut icon" href="../img/triangle.ico">
 
-	<link rel="stylesheet" type="text/css" href="../css/cs61a.css">
-	<script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script> 
-	<script src="../js/cs61a.js" type="text/javascript"></script> 
-	
-	<!-- font -->
-	<link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/fantasque-sans-mono" rel="stylesheet" type="text/css"/>
-	<link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../css/cs61a.css">
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script> 
+    <script src="../js/jquery.localscroll-1.2.7-min.js" type="text/javascript"></script> 
+    <script src="../js/jquery.scrollTo-1.4.3.1-min.js" type="text/javascript"></script> 
+
+    <script src="../js/cs61a.js" type="text/javascript"></script> 
+    
+    <!-- fonts -->
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/fantasque-sans-mono" rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+    <!-- end fonts -->
 
 
-	<link rel="stylesheet" href="../styles/obsidian.css">
-	<script src="../js/highlight.pack.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="../styles/obsidian.css">
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+<head>
+    <title>michelle hwang // CS61A</title>
+</head>
 <body>
+
 <div class="nav top">
-	<a href="http://www.michellerubyhwang.com">home</a> // 
-	<a href="#tuples">tuples</a> // 
-	<a href="#envs">tuples</a> // 
+    <a href="http://www.michellerubyhwang.com">home</a> // 
+    <a href="#tuples">tuples</a> // 
+    <a href="#envs">environment diagrams</a> // 
+    <a href="#blah">blah</a> // 
 </div>
+
 <section id="tuples" name="tuples">
-	<div class="topic">tuples</div>
-	<div class="question-wrapper">
-		<div class="question">
-			Define tuple_replace, which takes a tuple TUP and a number N, and returns a function with input function FN that replaces the elements N to len(TUP) - 1 with those same elements, now applied with FN. If N does not exist in the tuple, return the tuple unchanged.
-		</div>
-		<div class="template">
+    <div class="topic">tuples</div>
+    <div class="question-wrapper">
+        <div class="question">
+            Define tuple_replace, which takes a tuple TUP and a number N, and returns a function with input function FN that replaces the elements N to len(TUP) - 1 with those same elements, now applied with FN. If N does not exist in the tuple, return the tuple unchanged.
+        </div>
+        <div class="template">
 <pre><code>'''
 >>> add_four = lambda x : x + 4
 >>> tuple_replace(orig_tup, 4)(add_four)
@@ -38,53 +48,56 @@
 (2, 4, 6, 8)
 '''
 def tuple_replace(tup, n):
-	## YOUR CODE HERE ##
+    ## YOUR CODE HERE ##
 </code></pre>
-		</div>
-	<button class="toggle">toggle solution</button>
-		<div class="solution hide">
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
 <pre><code>
 def tuple_replace(tup, n):
-	def gen(fn):
-		count, result, apply = 0, (), False
-		while count < len(tup):
-			if apply:
-				result += (fn(tup[count]),)
-			else:
-				result += (tup[count],)
-			if tup[count] == n:
-				apply = True
-			count += 1
-		return result
-	return gen
+    def gen(fn):
+        count, result, apply = 0, (), False
+        while count < len(tup):
+            if apply:
+                result += (fn(tup[count]),)
+            else:
+                result += (tup[count],)
+            if tup[count] == n:
+                apply = True
+            count += 1
+        return result
+    return gen
 
 </code></pre>
-		</div>		
+        </div>
+    </div> 
 </section>
 
-<section id="environments" name="envs">
-	<div class="topic">environment diagrams</div>
-	<div class="question-wrapper">
-		<div class="question">
-			Draw the environment diagram.
-		</div>
-		<div class="template">
+
+<section id="environments" name="blah">
+    <div class="topic">environment diagrams</div>
+    <div class="question-wrapper">
+        <div class="question">
+            Draw the environment diagram.
+        </div>
+        <div class="template">
 <pre><code>
 def yak(zebra):
-	return 20 // zebra
+    return 20 // zebra
 def llama(alpaca):
-	zebra = 0
-	def yak(zebra):
-		return alpaca(zebra)
-	return yak
+    zebra = 0
+    def yak(zebra):
+        return alpaca(zebra)
+    return yak
 
 >>> llama(yak)(4)
 </code></pre>
-		</div>
-	<button class="toggle">toggle solution</button>
-		<div class="solution hide">
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
 click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)%3A%0A++++return+20+//+zebra%0Adef+llama(alpaca)%3A%0A++++zebra+%3D+0%0A++++def+yak(zebra)%3A%0A++++++++return+alpaca(zebra)%0A++++return+yak%0A%0A%3E%3E%3E+llama(yak)(4)&mode=edit&cumulative=true&py=3">here</a> for the solution
-		</div>		
+        </div>  
+    </div>    
 </section>
 
 </body>

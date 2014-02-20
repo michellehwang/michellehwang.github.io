@@ -1,0 +1,64 @@
+#teaching .normal-link {
+	color: red;
+}
+
+#teaching #header {
+	display: table;	
+}
+
+#teaching-title, #teaching-menu {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#teaching-title {
+	right: 0%;
+	position: relative;
+	padding-right: 4%;
+}
+#teaching-menu {
+	left: 0%;
+	position: relative;
+}
+#teaching-data {
+	border: none;
+}
+
+#teaching-info {
+	font-family: 'Carrois Gothic', sans-serif;
+	color: black;
+	font-size: 1em;
+	width: 55%;
+	left: 25%;
+	position: absolute;
+	display: table;
+	vertical-align: middle;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.bold, .hover-bold {
+	font-weight: bold;
+}
+
+.semester.bold {
+	color: red;
+}
+
+.hide {
+	display: none;
+}
+
+#semester-info {
+	width: 100%;
+	padding: 2%;
+	display: table;
+}
+
+.announcements, .additional {
+	display: table-cell;
+	width: 500px;
+	padding-left: 2%;
+}

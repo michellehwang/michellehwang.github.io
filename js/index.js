@@ -28,6 +28,7 @@ $(document).ready(function() {
 			$("#scroll").addClass("hide") }
 	);
 
+
 });
 
 $(window).resize(function(){

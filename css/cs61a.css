@@ -1,0 +1,27 @@
+html {
+	/*background: url("../img/stardust.png") repeat; */
+}
+
+body {
+	/*margin: 0;*/
+}
+
+.question-wrapper {
+	width: 70%;
+}
+.topic {
+	padding: 2%;
+	/*width: 100%;*/
+	background-color: white;
+	color: blue;
+	opacity: .9;
+}
+
+.solution {
+	border-radius: 9.0;
+	/*width: 50%;*/
+}
+
+.hljs {
+    font-family: 'Fantasque Sans Mono';
+}

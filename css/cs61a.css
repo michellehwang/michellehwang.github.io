@@ -1,5 +1,5 @@
 html {
-	/*background: url("../img/stardust.png") repeat; */
+	background: url("../img/stardust.png") repeat; 
 }
 
 body {
@@ -8,20 +8,36 @@ body {
 
 .question-wrapper {
 	width: 70%;
+	margin-left: 2em;
 }
 .topic {
-	padding: 2%;
+	padding: 1%;
 	/*width: 100%;*/
-	background-color: white;
-	color: blue;
+	font-family: 'Grand Hotel', cursive;
+	font-size: 3em;
+	/*background-color: white;*/
+	color: white;
 	opacity: .9;
 }
 
-.solution {
+.question {
+	font-family: 'Carrois Gothic', sans-serif, bold;
+	/*font-weight: bold;*/
+	font-size: 1.2em;
+}
+.template {
 	border-radius: 9.0;
 	/*width: 50%;*/
 }
 
-.hljs {
+.hljs, code {
+	border-radius: 9.0;
     font-family: 'Fantasque Sans Mono';
+}
+
+.solution {
+	color: red;
+}
+.hide {
+	display: none;
 }

@@ -26,10 +26,57 @@
 
 <div class="nav top">
     <a href="/">home</a> // 
+    <a href="#control">control</a> // 
     <a href="#tuples">tuples</a> // 
     <a href="#envs">environment diagrams</a> // 
     <a href="#lists">lists</a> // 
 </div>
+
+<section id="control" class="control">
+<div class="topic">control<div>
+
+<div class="question-wrapper">
+        <div class="question">
+        Sum of all multiples
+       
+       If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+        Find the sum of all the multiples of M or N below some number LIMIT.
+        </div>
+        <div class="template">
+<pre><code>def sum_multiples(m, n, limit):
+    """
+    >>> sum_multiples(3, 5, 10)
+    23
+    >>> sum_multiples(3, 7, 1000)
+    214216
+    """
+    ## YOUR CODE HERE ##
+
+def largest_palindrome_product(n):
+    """
+    >>> largest_palindrome_product(2)
+    9009
+    """
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>def sum_multiples(m, n, limit):
+    count = 0
+    total = 0
+    while count < limit:
+        if count % m == 0:
+            total += count
+        elif count % n == 0:
+            total += count
+        # Why don't I have to check count % m == 0 and count % n == 0?
+        count += 1
+    return total
+</code></pre>
+        </div>
+    </div>
+</section>
 
 <section id="tuples" name="tuples">
     <div class="topic">tuples</div>
@@ -141,6 +188,58 @@ click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)
         </div>
     </div> 
 </section>
+
+<section id="exam" name="exam">
+    <div class="topic">exam-level questions</div>
+
+ <!--    <div class="question-wrapper">
+        <div class="question">
+        Largest Palindrome Product
+        A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 99.
+
+        Find the largest palindrome made from the product of two 3-digit numbers.
+        Hint: Write an is_paindrome function to help you!
+        </div>
+        <div class="template">
+<pre><code>def is_palindrome(num):
+    """
+    >>> is_palindrome(9009)
+    True
+    >>> is_palindrome(202)
+    True
+    >>> is_palindrome(13)
+    False
+    """
+    ## YOUR CODE HERE ##
+
+def largest_palindrome_product(n):
+    """
+    >>> largest_palindrome_product(2)
+    9009
+    """
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>def is_palindrome(num):
+    return str(num) == str(num)[::-1]
+
+def fn(n):
+    max_palindrome = 1
+    for x in range(n,1,-1):
+        for y in range(n,x-1,-1):
+            if is_palindrome(x*y) and x*y > max_palindrome:
+                max_palindrome = x*y
+            elif x * y < max_palindrome:
+                break
+    return max_palindrome
+</code></pre>
+        </div>
+    </div> --> 
+</section>
+
+
+
 
 
 </body>

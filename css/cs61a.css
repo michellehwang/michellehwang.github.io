@@ -6,6 +6,12 @@ body {
 	/*margin: 0;*/
 }
 
+#header {
+	color: white;
+	font-family: 'Carrois Gothic', sans-serif, bold;
+	
+}
+
 .question-wrapper {
 	width: 70%;
 	margin-left: 2em;

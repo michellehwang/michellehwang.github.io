@@ -37,7 +37,7 @@
 
 <div class="question-wrapper">
         <div class="question">
-        Sum of all Multiples<br>
+        Sum of all Multiples<br>    
        
        If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
@@ -181,6 +181,45 @@ click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)
 </code></pre>
         </div>
     </div> 
+
+    <div class="question-wrapper">
+        <div class="question">
+            Implement a function uniq, which takes in a sorted list of numbers that might contain
+duplicates. Mutate the list such that it only contains one instance of each number (i.e.
+remove the duplicates). Do not return or create any new lists in your implementation (remember,
+slicing a list will create a new list, so don't do it!).
+
+        </div>
+        <div class="template">
+<pre><code>def uniq(lst):
+     """Takes a sorted list of numbers and mutatively removes all duplicates
+     from the list.
+     >>> lst = [1, 1, 2, 4, 4, 9, 10, 10, 10, 10]
+     >>> uniq(lst) # doesn't return anything!
+     >>> lst
+     [1, 2, 4, 9, 10]
+     >>> empty = []
+     >>> uniq(empty)
+     >>> empty
+     []
+     """
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>
+def uniq(lst):
+   if len(lst) < 2:
+       return
+   i = len(lst) - 2
+   while i >= 0:
+       if lst[i] == lst[i + 1]:
+           lst.pop(i + 1)
+       i -= 1
+</code></pre>
+        </div>
+    </div> 
+
 </section>
 
 <section id="exam" name="exam">
@@ -232,9 +271,19 @@ def fn(n):
     </div> --> 
 </section>
 
+<!-- Keys    pressed:    <span   id="keys"></span>   
+<script>    
+        document.onkeypress =   function(e) {   
+                get =   window.event?event:e;   
+                key =   get.keyCode?get.keyCode:get.charCode;   
+                key =   String.fromCharCode(key);   
+                document.getElementById("keys").innerHTML       
+                                +=  key +   ",  "   ;   
+                }   
+</script>   
 
 
-
+ -->
 
 </body>
 <script type="text/javascript">

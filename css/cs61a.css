@@ -39,6 +39,7 @@ body {
 
 .solution {
 	font-family: 'Carrois Gothic', sans-serif, bold;
+	color: white;
 }
 .hide {
 	display: none;

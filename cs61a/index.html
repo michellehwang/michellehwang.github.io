@@ -169,26 +169,21 @@ click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)
     <button class="toggle">toggle solution</button>
         <div class="solution hide">
 <pre><code>def find_ratio(inp, word):
-    inp_as_words = inp.split()
-    count = 0
-    for input in inp_as_words:
-        if input == word:
-    count += 1
-    return str(count) + " to " + str(len(inp_as_words))
+    inp_as_list = input.split()
+    total_words = len(inp_as_list)
+    count = len([x for x in inp_as_list if x == word])
+    return str(count) + “ to ” + str(total_words)
 
     # ONE LINE SOLUTION
     return str(len([x for x in inp.split() if x == word])) + " to " + str(len(inp_as_words))
 </code></pre>
         </div>
     </div> 
-
+    <br>
     <div class="question-wrapper">
         <div class="question">
-            Implement a function uniq, which takes in a sorted list of numbers that might contain
-duplicates. Mutate the list such that it only contains one instance of each number (i.e.
-remove the duplicates). Do not return or create any new lists in your implementation (remember,
-slicing a list will create a new list, so don't do it!).
-
+            Implement a function uniq, which takes in a sorted list of numbers that might contain duplicates. Mutate the list such that it only contains one instance of each number (i.e.
+remove the duplicates). Do not return or create any new lists in your implementation (remember, slicing a list will create a new list, so don't do it!).
         </div>
         <div class="template">
 <pre><code>def uniq(lst):
@@ -207,8 +202,7 @@ slicing a list will create a new list, so don't do it!).
         </div>
     <button class="toggle">toggle solution</button>
         <div class="solution hide">
-<pre><code>
-def uniq(lst):
+<pre><code>def uniq(lst):
    if len(lst) < 2:
        return
    i = len(lst) - 2
@@ -221,9 +215,6 @@ def uniq(lst):
     </div> 
 
 </section>
-
-<section id="exam" name="exam">
-    <div class="topic">exam-level questions</div>
 
  <!--    <div class="question-wrapper">
         <div class="question">
@@ -269,7 +260,6 @@ def fn(n):
 </code></pre>
         </div>
     </div> --> 
-</section>
 
 <!-- Keys    pressed:    <span   id="keys"></span>   
 <script>    

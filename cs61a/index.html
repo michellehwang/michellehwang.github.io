@@ -338,7 +338,7 @@ class RList:
         <div class="solution hide">
 <pre><code>def combine_adjacent(rlst):
     new = RList(rlst.first)
-    to_return = new # Keep a pointer to the rlist so we can return it at the end!
+    new_ptr = new # Keep a pointer to the rlist so we can return it at the end!
     curr = rlst.first
     rlst = rlst.rest
     while rlst != RList.empty:
@@ -347,7 +347,7 @@ class RList:
             new = new.rest
             curr = rlst.first
         rlst = rlst.rest
-    return to_return
+    return new_ptr
 
 </code></pre>
         </div>

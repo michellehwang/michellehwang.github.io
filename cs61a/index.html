@@ -295,8 +295,7 @@ remove the duplicates). Do not return or create any new lists in you
 For these questions, assume you have the following RList implementation:
     </div>
     <div class="template">
-<pre><code>
-class RList:
+<pre><code>class RList:
     class EmptyList:
         def __len__(self):
             return 0
@@ -314,6 +313,7 @@ class RList:
         else:
             rest = ', ' + repr(s.rest)
         return 'RList({0}{1})'.format(s.first, rest)
+        
 </code></pre>
 </div></div>
 <div class="question-wrapper">

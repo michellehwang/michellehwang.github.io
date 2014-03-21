@@ -15,6 +15,7 @@ body {
 .question-wrapper {
 	width: 70%;
 	margin-left: 2em;
+	padding-bottom: 1%;
 }
 .topic {
 	padding: 1%;

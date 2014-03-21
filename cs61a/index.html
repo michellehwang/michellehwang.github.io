@@ -290,7 +290,32 @@ remove the duplicates). Do not return or create any new lists in you
 
 <section id="rlists" name="rlists">
     <div class="topic">rlists</div>
+<div class="question-wrapper">
+    <div class="question">
+For these questions, assume you have the following RList implementation:
+    </div>
+    <div class="template">
+<pre><code>
+class RList:
+    class EmptyList:
+        def __len__(self):
+            return 0
 
+    empty = EmptyList()
+
+    def __init__(self, first, rest=empty):
+        self.first = first
+        self.rest = rest
+
+    def __repr__(s):
+        """Return a string that would evaluate to s."""
+        if s.rest is RList.empty:
+            rest = ''
+        else:
+            rest = ', ' + repr(s.rest)
+        return 'RList({0}{1})'.format(s.first, rest)
+</code></pre>
+</div></div>
 <div class="question-wrapper">
         <div class="question">
             Implement a function combine_adjacent, which takes in an RList and condenses adjacent, repeated RList entries.
@@ -327,7 +352,6 @@ remove the duplicates). Do not return or create any new lists in you
 </code></pre>
         </div>
     </div> 
-
 <div class="question-wrapper">
         <div class="question">
             Implement compress_adjacent_mutate to have the same functionality as above. But this time, make sure to mutate the RList.

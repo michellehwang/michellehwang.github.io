@@ -188,25 +188,25 @@ def list_copier(a):
         return a[:]
 def nester(a, b):
         return b.append(a)
-a = [1, 2, 3]
-b = [1, 2, 3]
-a == b
+>>> a = [1, 2, 3]
+>>> b = [1, 2, 3]
+>>> a == b
 True
-a is b
-True
-c = nester(a, b)
-a == b
+>>> a is b
 False
-b[-1] is a
+>>> c = nester(a, b)
+>>> a == b
+False
+>>> b[-1] is a
 True
-d = nester(c, a)
-a
+>>> d = nester(c, a)
+>>> a
 [1, 2, 3, None]
-d = a + b
-e = list_maker(a, b)
-d == e
+>>> d = a + b
+>>> e = list_maker(a, b)
+>>> d == e
 True
-d is e
+>>> d is e
 False
 </code></pre>
         </div>
@@ -313,7 +313,7 @@ For these questions, assume you have the following RList implementation:
         else:
             rest = ', ' + repr(s.rest)
         return 'RList({0}{1})'.format(s.first, rest)
-        
+
 </code></pre>
 </div></div>
 <div class="question-wrapper">

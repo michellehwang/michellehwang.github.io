@@ -9,7 +9,6 @@ body {
 #header {
 	color: white;
 	font-family: 'Carrois Gothic', sans-serif, bold;
-	
 }
 
 .question-wrapper {
@@ -54,11 +53,13 @@ body {
 
 
 .nav.top {
+	text-align: right;
 	top: .1em;
 	right: 0em;
+	padding: 1%;
+	border-radius: 5%;
 	position: fixed;
 	background: black;
-	color: white;
 	font-size: 1.2em;
 	z-index: 4;
 }

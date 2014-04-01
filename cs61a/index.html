@@ -2,7 +2,6 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link rel="shortcut icon" href="../img/triangle.ico">
-    <script src="../js/csi.min.js" type="text/javascript"></script> 
 
 <head>
     <title>CS61A | Michelle Ruby Hwang</title>
@@ -28,43 +27,9 @@ Here are some practice problems for CS 61A at Berkeley, sorted by topic.
 
 <section id="control" name="control">
 <div class="topic">control</div>
-<div class="question-wrapper">
-        <div class="question">
-        Sum of all Multiples<br>    
-       
-       If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
-        Find the sum of all the multiples of M or N below some number LIMIT.
-        </div>
-        <div class="template">
-<pre><code>def sum_multiples(m, n, limit):
-    """
-    >>> sum_multiples(3, 5, 10)
-    23
-    >>> sum_multiples(3, 7, 1000)
-    214216
-    """
-    ## YOUR CODE HERE ##
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>def sum_multiples(m, n, limit):
-    count = 0
-    total = 0
-    while count < limit:
-        if count % m == 0:
-            total += count
-        elif count % n == 0:
-            total += count
-        # Why don't I have to check count % m == 0 and count % n == 0?
-        count += 1
-    return total
-</code></pre>
-        </div>
-</div>
 <!-- <link rel="import" href="/cs61a/questions/control/sum_multiples.html"> -->
-<!-- <div data-include="/cs61a/questions/control/sum_multiples.html"></div> -->
+<div data-include="/cs61a/questions/control/sum_multiples.html"></div>
 </section>
 
 <section id="tuples" name="tuples">
@@ -512,9 +477,10 @@ True
     <!-- end fonts -->
 
 
-    <link rel="stylesheet" href="../styles/rainbow.css">
-    <script src="../js/highlight.pack.js"></script>
-     // <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/csi.min.js" type="text/javascript"></script> 
     <script src="../js/cs61a.js" type="text/javascript"></script> 
-
+    <link rel="stylesheet" href="../styles/rainbow.css">
+    
+    <span id="last">
+    </span>
 </html>

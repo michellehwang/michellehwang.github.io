@@ -1,4 +1,4 @@
-$(window).bind("load", function() {
+$(window).load(function() {
 	console.log("I'm ready");
 	$('.nav').localScroll({duration:500});
     
@@ -7,5 +7,5 @@ $(window).bind("load", function() {
     	var hello = evt.target;
     	$(evt.target).siblings().closest(".solution").toggleClass('hide');
     });
-	hljs.initHighlightingOnLoad();
+    $("span#last").html("<script src=\"../js/highlight.pack.js\"></script><script>hljs.initHighlighting();</script>")
 });

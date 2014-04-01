@@ -1,0 +1,26 @@
+<div class="question-wrapper">
+    <div class="question">
+For these questions, assume you have the following RList implementation:
+    </div>
+    <div class="template">
+<pre><code>class RList:
+    class EmptyList:
+        def __len__(self):
+            return 0
+
+    empty = EmptyList()
+
+    def __init__(self, first, rest=empty):
+        self.first = first
+        self.rest = rest
+
+    def __repr__(s):
+        """Return a string that would evaluate to s."""
+        if s.rest is RList.empty:
+            rest = ''
+        else:
+            rest = ', ' + repr(s.rest)
+        return 'RList({0}{1})'.format(s.first, rest)
+</code></pre>
+    </div>
+</div>

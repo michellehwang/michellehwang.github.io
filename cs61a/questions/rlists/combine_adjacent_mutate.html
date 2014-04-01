@@ -1,0 +1,32 @@
+<div class="question-wrapper">
+        <div class="question">
+            Implement compress_adjacent_mutate to have the same functionality as above. But this time, make sure to mutate the RList.
+        </div>
+        <div class="template">
+<pre><code>def compress_adjacent_mutate(rlst):
+    """
+    >>> all_same = RList(1, RList(1, RList(1)))
+    >>> combine_adjacent_mutate(all_same)
+    >>> all_same
+    RList(1)
+    >>> long = RList(1, RList(1, RList(2, RList(4, RList(4, RList(9, RList(10, RList(10, RList(10, RList(10))))))))))
+    >>> combine_adjacent_mutate(long)
+    >>> long
+    RList(1, RList(2, RList(4, RList(9, RList(10)))))
+    """
+
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>def compress_adjacent_mutate(rlst):
+    curr = rlst.first
+    while rlst.rest is not RList.empty:
+        if rlst.rest.first == curr:
+            rlst.rest = rlst.rest.rest
+        else:
+            curr = rlst.rest.first
+            rlst = rlst.rest 
+</code></pre>
+        </div>
+    </div> 

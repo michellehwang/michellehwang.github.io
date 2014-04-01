@@ -44,426 +44,45 @@ Here are some practice problems for CS 61A at Berkeley, sorted by topic.
 </div>
 
 <section id="control" name="control">
-<div class="topic">control</div>
-
-<!-- <link rel="import" href="/cs61a/questions/control/sum_multiples.html"> -->
-<div data-include="/cs61a/questions/control/sum_multiples.html"></div>
+    <div class="topic">control</div>
+        <div data-include="/cs61a/questions/control/sum_multiples.html"></div>
 </section>
 
 <section id="tuples" name="tuples">
     <div class="topic">tuples</div>
-    <div class="question-wrapper">
-        <div class="question">
-            Define tuple_replace, which takes a tuple TUP and a number N, and returns a function with input function FN that replaces the elements N to len(TUP) - 1 with those same elements, now applied with FN. If N does not exist in the tuple, return the tuple unchanged.
-        </div>
-        <div class="template">
-<pre><code>def tuple_replace(tup, n):
-    '''
-    >>> orig_tup = (2,4,6,8)
-    >>> add_four = lambda x : x + 4
-    >>> tuple_replace(orig_tup, 2)(add_four)
-    (2, 4, 10, 12)
-    >>> tuple_replace(orig_tup, 5)(lambda x : x * x)
-    (2, 4, 6, 8)
-    '''
-    ## YOUR CODE HERE ##
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>def tuple_replace(tup, n):
-    def gen(fn):
-        count, result, apply = 0, (), False
-        while count < len(tup):
-            if count == n:
-                apply = True
-            if apply:
-                result += (fn(tup[count]),)
-            else:
-                result += (tup[count],)
-            count += 1
-        return result
-    return gen
-</code></pre>
-        </div>
-    </div> 
+        <div data-include="/cs61a/questions/tuples/tuple_replace.html"></div>
 </section>
 
 
 <section id="envs" name="envs">
     <div class="topic">environment diagrams</div>
-    <div class="question-wrapper">
-        <div class="question">
-            Draw the environment diagram.
-        </div>
-        <div class="template">
-<pre><code>def yak(zebra):
-    return 20 // zebra
-def llama(alpaca):
-    zebra = 0
-    def yak(zebra):
-        return alpaca(zebra)
-    return yak
-
->>> llama(yak)(4)
-</code></pre>
-        </div>
-        <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-
-click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)%3A%0A++++return+20+//+zebra%0Adef+llama(alpaca)%3A%0A++++zebra+%3D+0%0A++++def+yak(zebra)%3A%0A++++++++return+alpaca(zebra)%0A++++return+yak%0A%0A%3E%3E%3E+llama(yak)(4)&mode=edit&cumulative=true&py=3">here</a> for the solution
-        </div>  
-    </div>    
+        <div data-include="/cs61a/questions/envdiagrams/yakalpaca.html"></div>
 </section>
 
 <section id="lists" name="lists">
     <div class="topic">lists</div>
-    <div class="question-wrapper">
-        <div class="question">
-            What Would Python Print?
-        </div>
-        <div class="template">
-<pre><code>def list_maker(a, b):
-        return list(a) + list(b)
-def list_copier(a):
-        return a[:]
-def nester(a, b):
-        return b.append(a)
->>> a = [1, 2, 3]
->>> b = [1, 2, 3]
->>> a == b
-
->>> a is b
-
->>> c = nester(a, b)
->>> a == b
-
->>> b[-1] is a
-
->>> d = nester(c, a)
->>> a
-
->>> d = a + b
->>> e = list_maker(a, b)
->>> d == e
-
->>> d is e
-
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>def list_maker(a, b):
-        return list(a) + list(b)
-def list_copier(a):
-        return a[:]
-def nester(a, b):
-        return b.append(a)
->>> a = [1, 2, 3]
->>> b = [1, 2, 3]
->>> a == b
-True
->>> a is b
-False
->>> c = nester(a, b)
->>> a == b
-False
->>> b[-1] is a
-True
->>> d = nester(c, a)
->>> a
-[1, 2, 3, None]
->>> d = a + b
->>> e = list_maker(a, b)
->>> d == e
-True
->>> d is e
-False
-</code></pre>
-        </div>
-    </div> 
-
-    <div class="question-wrapper">
-        <div class="question">
-            Justin Bieber's song "Baby" repeats the word "baby" 55 times. Vampire Weekend's song "Diane Young" repeats the word "baby" 64 times.
-            Write a function find_ratio(inp, word) such that, given any string, will return you the ratio between one word and the rest of the string. <br>
-
-            Assume the strings are provided with no punctuation and in all lowercase letters. <br>
-
-            Note: calling VAR_NAME.split() where VAR_NAME is a string will return you a list of each word<br>
-            example: 
-            <pre><code>>>> diane_young = "baby baby baby baby right on time"
->>> diane_young.split() = ["baby", "baby", "baby", "baby", "right", "on", "time"]</code></pre>
-
-
-        </div>
-        <div class="template">
-<pre><code>def find_ratio(inp, word):
-    """
-    >>> diane_young = "baby baby baby baby right on time"
-    >>> find_ratio(diane_young, "baby")
-    "4 to 3"
-    >>> baby = "like baby baby baby no like baby baby baby oh"
-    >>> find_ratio(baby, "baby")
-    "6 to 4"
-    """
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>def find_ratio(inp, word):
-    inp_as_list = input.split()
-    total_words = len(inp_as_list)
-    count = len([x for x in inp_as_list if x == word])
-    return str(count) + “ to ” + str(total_words)
-
-    # ONE LINE SOLUTION
-    return str(len([x for x in inp.split() if x == word])) + " to " + str(len(inp_as_words))
-</code></pre>
-        </div>
-    </div> 
-    <br>
-    <div class="question-wrapper">
-        <div class="question">
-            Implement a function uniq, which takes in a sorted list of numbers that might contain duplicates. Mutate the list such that it only contains one instance of each number (i.e.
-remove the duplicates). Do not return or create any new lists in your implementation (remember, slicing a list will create a new list, so don't do it!).
-        </div>
-        <div class="template">
-<pre><code>def uniq(lst):
-     """Takes a sorted list of numbers and mutatively removes all duplicates
-     from the list.
-     >>> lst = [1, 1, 2, 4, 4, 9, 10, 10, 10, 10]
-     >>> uniq(lst) # doesn't return anything!
-     >>> lst
-     [1, 2, 4, 9, 10]
-     >>> empty = []
-     >>> uniq(empty)
-     >>> empty
-     []
-     """
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>def uniq(lst):
-   if len(lst) < 2:
-       return
-   i = len(lst) - 2
-   while i >= 0:
-       if lst[i] == lst[i + 1]:
-           lst.pop(i + 1)
-       i -= 1
-</code></pre>
-        </div>
-    </div> 
-
+        <div data-include="/cs61a/questions/lists/wwpp1.html"></div>
+        <div data-include="/cs61a/questions/lists/find_ratio.html"></div>
+        <div data-include="/cs61a/questions/lists/uniq.html"></div>
 </section>
 
 <section id="rlists" name="rlists">
     <div class="topic">rlists</div>
-<div class="question-wrapper">
-    <div class="question">
-For these questions, assume you have the following RList implementation:
-    </div>
-    <div class="template">
-<pre><code>class RList:
-    class EmptyList:
-        def __len__(self):
-            return 0
-
-    empty = EmptyList()
-
-    def __init__(self, first, rest=empty):
-        self.first = first
-        self.rest = rest
-
-    def __repr__(s):
-        """Return a string that would evaluate to s."""
-        if s.rest is RList.empty:
-            rest = ''
-        else:
-            rest = ', ' + repr(s.rest)
-        return 'RList({0}{1})'.format(s.first, rest)
-
-</code></pre>
-</div></div>
-<div class="question-wrapper">
-        <div class="question">
-            Implement a function combine_adjacent, which takes in an RList and condenses adjacent, repeated RList entries.
-            First, try writing this such that you create and return a new RList. 
-        </div>
-        <div class="template">
-<pre><code>def compress_adjacent(rlst):
-    """
-    >>> all_same = RList(1, RList(1, RList(1)))
-    >>> combine_adjacent(all_same)
-    RList(1)
-    >>> long = RList(1, RList(1, RList(2, RList(4, RList(4, RList(9, RList(10, RList(10, RList(10, RList(10))))))))))
-    >>> combine_adjacent(long)
-    RList(1, RList(2, RList(4, RList(9, RList(10)))))
-    """
-
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>def combine_adjacent(rlst):
-    new = RList(rlst.first)
-    new_ptr = new # Keep a pointer to the rlist so we can return it at the end!
-    curr = rlst.first
-    rlst = rlst.rest
-    while rlst != RList.empty:
-        if rlst.first != curr:
-            new.rest = RList(rlst.first)
-            new = new.rest
-            curr = rlst.first
-        rlst = rlst.rest
-    return new_ptr
-
-</code></pre>
-        </div>
-    </div> 
-<div class="question-wrapper">
-        <div class="question">
-            Implement compress_adjacent_mutate to have the same functionality as above. But this time, make sure to mutate the RList.
-        </div>
-        <div class="template">
-<pre><code>def compress_adjacent_mutate(rlst):
-    """
-    >>> all_same = RList(1, RList(1, RList(1)))
-    >>> combine_adjacent_mutate(all_same)
-    >>> all_same
-    RList(1)
-    >>> long = RList(1, RList(1, RList(2, RList(4, RList(4, RList(9, RList(10, RList(10, RList(10, RList(10))))))))))
-    >>> combine_adjacent_mutate(long)
-    >>> long
-    RList(1, RList(2, RList(4, RList(9, RList(10)))))
-    """
-
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>def compress_adjacent_mutate(rlst):
-    curr = rlst.first
-    while rlst.rest is not RList.empty:
-        if rlst.rest.first == curr:
-            rlst.rest = rlst.rest.rest
-        else:
-            curr = rlst.rest.first
-            rlst = rlst.rest 
-</code></pre>
-        </div>
-    </div> 
-
+        <div data-include="/cs61a/questions/rlists/rlist_implementation.html"></div>
+        <div data-include="/cs61a/questions/rlists/combine_adjacent.html"></div>
+        <div data-include="/cs61a/questions/rlists/combine_adjacent_mutate.html"></div>
 </section>
 
 
 <section id="dicts" name="dicts">
     <div class="topic">dictionaries</div>
-
-    <div class="question-wrapper">
-        <div class="question">
-    <!-- Question here -->
-Write a function merge_unique_values which takes in two dictionaries first and second that merges the values of second into first if and only if they are not already in first. Keys that exist in second, but do not exist must be added to first
-        </div>
-        <div class="template">
-<pre><code>
-def merge_unique_values(first, second):
-    """
-    >>> first = {'a': [1, 1, 2, 3], 'r': [1, 2, 5, 6]}
-    >>> second = {'a': [1, 1, 2, 3, 4], 'r': [1, 2, 5, 6], 'm': [15, 6, 7]}
-    >>> merge_unique_values(first, second)
-    >>> first
-    {'a': [1, 1, 2, 3, 4], 'r': [1, 2, 5, 6], 'm': [15, 6, 7]}
-    >>> second
-    {'a': [1, 1, 2, 3, 4], 'r': [1, 2, 5, 6], 'm': [15, 6, 7]}
-    >>> first = {'a': ['herp', 'derp'], 'j': ['foo', 'bar'], 'c': []}
-    >>> second = {'c': ['hello', 'world']}
-    >>> merge_unique_values(first, second)
-    >>> first
-    {'a': ['herp', 'derp'], 'c': ['hello', 'world'], 'j': ['foo', 'bar']}
-    """
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>
-def merge_unique_values(first, second):
-    for key, val in second.items():
-        if key in first:
-            for v in val:
-                if v not in first[key]:
-                    first[key].append(v)
-        else:
-            first[key] = second[key]
-</code></pre>
-        </div>
-    </div> 
-
+        <div data-include="/cs61a/questions/dicts/merge_unique.html"></div>
 </section>
 
 
 <section id="identity-equality">
     <div class="topic">identity & equality</div>
-    <div class="question-wrapper">
-        <div class="question">
-            What Would Python Print?
-        </div>
-        <div class="template">
-<pre><code>>>> x = range(4)
->>> y = range(4)
->>> x == y
-
->>> x is y
-
->>> z = x
->>> z == x
-
->>> z is x
-
->>> z[2] = 7
-
->>> boom = “bam”
->>> bam = “boom”
->>> boom == bam
-
->>> boom = bam
->>> bam = boom
->>> boom is bam
-
->>> boom == bam
-
-</code></pre>
-        </div>
-    <button class="toggle">toggle solution</button>
-        <div class="solution hide">
-<pre><code>>>> x = range(4)
->>> y = range(4)
->>> x == y
-True
->>> x is y
-False
->>> z = x
->>> z == x
-True
->>> z is x
-True
->>> z[2] = 7
-ERROR: ‘range’ object does not support item assignment
->>> boom = “bam”
->>> bam = “boom”
->>> boom == bam
-False
->>> boom = bam
->>> bam = boom
->>> boom is bam
-True
->>> boom == bam
-True
-</code></pre>
-        </div>
-    </div> 
+        <div data-include="/cs61a/questions/identity-equality/wwpp.html"></div>
 
 </section>
 
@@ -481,6 +100,4 @@ True
   })();
 
 </script>
-
-
 </html>

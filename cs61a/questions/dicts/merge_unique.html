@@ -1,0 +1,38 @@
+    <div class="question-wrapper">
+        <div class="question">
+    <!-- Question here -->
+Write a function merge_unique_values which takes in two dictionaries first and second that merges the values of second into first if and only if they are not already in first. Keys that exist in second, but do not exist must be added to first
+        </div>
+        <div class="template">
+<pre><code>
+def merge_unique_values(first, second):
+    """
+    >>> first = {'a': [1, 1, 2, 3], 'r': [1, 2, 5, 6]}
+    >>> second = {'a': [1, 1, 2, 3, 4], 'r': [1, 2, 5, 6], 'm': [15, 6, 7]}
+    >>> merge_unique_values(first, second)
+    >>> first
+    {'a': [1, 1, 2, 3, 4], 'r': [1, 2, 5, 6], 'm': [15, 6, 7]}
+    >>> second
+    {'a': [1, 1, 2, 3, 4], 'r': [1, 2, 5, 6], 'm': [15, 6, 7]}
+    >>> first = {'a': ['herp', 'derp'], 'j': ['foo', 'bar'], 'c': []}
+    >>> second = {'c': ['hello', 'world']}
+    >>> merge_unique_values(first, second)
+    >>> first
+    {'a': ['herp', 'derp'], 'c': ['hello', 'world'], 'j': ['foo', 'bar']}
+    """
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>
+def merge_unique_values(first, second):
+    for key, val in second.items():
+        if key in first:
+            for v in val:
+                if v not in first[key]:
+                    first[key].append(v)
+        else:
+            first[key] = second[key]
+</code></pre>
+        </div>
+    </div> 

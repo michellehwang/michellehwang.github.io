@@ -1,0 +1,40 @@
+<div class="question-wrapper">
+        <div class="question">
+            Justin Bieber's song "Baby" repeats the word "baby" 55 times. Vampire Weekend's song "Diane Young" repeats the word "baby" 64 times.
+            Write a function find_ratio(inp, word) such that, given any string, will return you the ratio between one word and the rest of the string. <br>
+
+            Assume the strings are provided with no punctuation and in all lowercase letters. <br>
+
+            Note: calling VAR_NAME.split() where VAR_NAME is a string will return you a list of each word<br>
+            example: 
+            <pre><code>>>> diane_young = "baby baby baby baby right on time"
+>>> diane_young.split() = ["baby", "baby", "baby", "baby", "right", "on", "time"]</code></pre>
+
+
+        </div>
+        <div class="template">
+<pre><code>def find_ratio(inp, word):
+    """
+    >>> diane_young = "baby baby baby baby right on time"
+    >>> find_ratio(diane_young, "baby")
+    "4 to 3"
+    >>> baby = "like baby baby baby no like baby baby baby oh"
+    >>> find_ratio(baby, "baby")
+    "6 to 4"
+    """
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>def find_ratio(inp, word):
+    inp_as_list = input.split()
+    total_words = len(inp_as_list)
+    count = len([x for x in inp_as_list if x == word])
+    return str(count) + “ to ” + str(total_words)
+
+    # ONE LINE SOLUTION
+    return str(len([x for x in inp.split() if x == word])) + " to " + str(len(inp_as_words))
+</code></pre>
+        </div>
+    </div> 
+    

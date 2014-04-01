@@ -1,0 +1,64 @@
+<div class="question-wrapper">
+        <div class="question">
+            What Would Python Print?
+        </div>
+        <div class="template">
+<pre><code>def list_maker(a, b):
+        return list(a) + list(b)
+def list_copier(a):
+        return a[:]
+def nester(a, b):
+        return b.append(a)
+>>> a = [1, 2, 3]
+>>> b = [1, 2, 3]
+>>> a == b
+
+>>> a is b
+
+>>> c = nester(a, b)
+>>> a == b
+
+>>> b[-1] is a
+
+>>> d = nester(c, a)
+>>> a
+
+>>> d = a + b
+>>> e = list_maker(a, b)
+>>> d == e
+
+>>> d is e
+
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>def list_maker(a, b):
+        return list(a) + list(b)
+def list_copier(a):
+        return a[:]
+def nester(a, b):
+        return b.append(a)
+>>> a = [1, 2, 3]
+>>> b = [1, 2, 3]
+>>> a == b
+True
+>>> a is b
+False
+>>> c = nester(a, b)
+>>> a == b
+False
+>>> b[-1] is a
+True
+>>> d = nester(c, a)
+>>> a
+[1, 2, 3, None]
+>>> d = a + b
+>>> e = list_maker(a, b)
+>>> d == e
+True
+>>> d is e
+False
+</code></pre>
+        </div>
+    </div> 

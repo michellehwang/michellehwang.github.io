@@ -1,0 +1,36 @@
+<div class="question-wrapper">
+        <div class="question">
+            Implement a function combine_adjacent, which takes in an RList and condenses adjacent, repeated RList entries.
+            First, try writing this such that you create and return a new RList. 
+        </div>
+        <div class="template">
+<pre><code>def compress_adjacent(rlst):
+    """
+    >>> all_same = RList(1, RList(1, RList(1)))
+    >>> combine_adjacent(all_same)
+    RList(1)
+    >>> long = RList(1, RList(1, RList(2, RList(4, RList(4, RList(9, RList(10, RList(10, RList(10, RList(10))))))))))
+    >>> combine_adjacent(long)
+    RList(1, RList(2, RList(4, RList(9, RList(10)))))
+    """
+
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>def combine_adjacent(rlst):
+    new = RList(rlst.first)
+    new_ptr = new # Keep a pointer to the rlist so we can return it at the end!
+    curr = rlst.first
+    rlst = rlst.rest
+    while rlst != RList.empty:
+        if rlst.first != curr:
+            new.rest = RList(rlst.first)
+            new = new.rest
+            curr = rlst.first
+        rlst = rlst.rest
+    return new_ptr
+
+</code></pre>
+        </div>
+    </div> 

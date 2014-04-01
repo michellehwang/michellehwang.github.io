@@ -1,0 +1,58 @@
+    <div class="question-wrapper">
+        <div class="question">
+            What Would Python Print?
+        </div>
+        <div class="template">
+<pre><code>>>> x = range(4)
+>>> y = range(4)
+>>> x == y
+
+>>> x is y
+
+>>> z = x
+>>> z == x
+
+>>> z is x
+
+>>> z[2] = 7
+
+>>> boom = “bam”
+>>> bam = “boom”
+>>> boom == bam
+
+>>> boom = bam
+>>> bam = boom
+>>> boom is bam
+
+>>> boom == bam
+
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>>>> x = range(4)
+>>> y = range(4)
+>>> x == y
+True
+>>> x is y
+False
+>>> z = x
+>>> z == x
+True
+>>> z is x
+True
+>>> z[2] = 7
+ERROR: ‘range’ object does not support item assignment
+>>> boom = “bam”
+>>> bam = “boom”
+>>> boom == bam
+False
+>>> boom = bam
+>>> bam = boom
+>>> boom is bam
+True
+>>> boom == bam
+True
+</code></pre>
+        </div>
+    </div> 

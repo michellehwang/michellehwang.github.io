@@ -1,0 +1,22 @@
+    <div class="question-wrapper">
+        <div class="question">
+            Draw the environment diagram.
+        </div>
+        <div class="template">
+<pre><code>def yak(zebra):
+    return 20 // zebra
+def llama(alpaca):
+    zebra = 0
+    def yak(zebra):
+        return alpaca(zebra)
+    return yak
+
+>>> llama(yak)(4)
+</code></pre>
+        </div>
+        <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+
+click <a href="http://pythontutor.com/composingprograms.html#code=def+yak(zebra)%3A%0A++++return+20+//+zebra%0Adef+llama(alpaca)%3A%0A++++zebra+%3D+0%0A++++def+yak(zebra)%3A%0A++++++++return+alpaca(zebra)%0A++++return+yak%0A%0A%3E%3E%3E+llama(yak)(4)&mode=edit&cumulative=true&py=3">here</a> for the solution
+        </div>  
+    </div>    

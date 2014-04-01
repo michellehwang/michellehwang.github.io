@@ -1,0 +1,33 @@
+<div class="question-wrapper">
+        <div class="question">
+            Implement a function uniq, which takes in a sorted list of numbers that might contain duplicates. Mutate the list such that it only contains one instance of each number (i.e.
+remove the duplicates). Do not return or create any new lists in your implementation (remember, slicing a list will create a new list, so don't do it!).<br>[ Note: Question courtesy of <a href="www.albertwu.org">Albert Wu</a> ]
+        </div>
+        <div class="template">
+<pre><code>def uniq(lst):
+     """Takes a sorted list of numbers and mutatively removes all duplicates
+     from the list.
+     >>> lst = [1, 1, 2, 4, 4, 9, 10, 10, 10, 10]
+     >>> uniq(lst) # doesn't return anything!
+     >>> lst
+     [1, 2, 4, 9, 10]
+     >>> empty = []
+     >>> uniq(empty)
+     >>> empty
+     []
+     """
+</code></pre>
+        </div>
+    <button class="toggle">toggle solution</button>
+        <div class="solution hide">
+<pre><code>def uniq(lst):
+   if len(lst) < 2:
+       return
+   i = len(lst) - 2
+   while i >= 0:
+       if lst[i] == lst[i + 1]:
+           lst.pop(i + 1)
+       i -= 1
+</code></pre>
+        </div>
+    </div> 

@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(window).bind("load", function() {
+	console.log("I'm ready");
 	$('.nav').localScroll({duration:500});
     
 
@@ -6,4 +7,5 @@ $(document).ready(function() {
     	var hello = evt.target;
     	$(evt.target).siblings().closest(".solution").toggleClass('hide');
     });
+	hljs.initHighlightingOnLoad();
 });

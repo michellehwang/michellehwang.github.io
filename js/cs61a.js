@@ -7,5 +7,5 @@ $(window).load(function() {
     	var hello = evt.target;
     	$(evt.target).siblings().closest(".solution").toggleClass('hide');
     });
-    $("span#last").html("<script src=\"../js/highlight.pack.js\"></script><script>hljs.initHighlighting();</script>")
+    $("span#hack").html("<script src=\"../js/highlight.pack.js\"></script><script>hljs.initHighlighting();</script>")
 });

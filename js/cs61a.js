@@ -5,7 +5,7 @@ $(window).load(function() {
 
     $("button").click(function(evt){
     	var hello = evt.target;
-    	$(evt.target).siblings().closest(".solution").toggleClass('hide');
+    	$(evt.target).siblings().closest(".solution").slideToggle('hide');
     });
     $("span#hack").html("<script src=\"../js/highlight.pack.js\"></script><script>hljs.initHighlighting();</script>")
 });

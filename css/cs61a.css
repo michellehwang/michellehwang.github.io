@@ -2,6 +2,17 @@ html {
 	background: url("../img/escheresque_ste.png") repeat; 
 }
 
+#title_page {
+	height: 100%;
+	background: url("../img/light_grey.png") repeat fixed;
+}
+
+#name {
+	color: black;
+	font-family: 'Carrois Gothic', sans-serif, bold;
+	font-size: 4em;
+}
+
 body {
 	/*margin: 0;*/
 }
@@ -60,7 +71,7 @@ body {
 	border-radius: 5%;
 	position: fixed;
 	background: black;
-	font-size: 1.2em;
+	font-size: 1em;
 	z-index: 4;
 }
 
@@ -68,7 +79,6 @@ body {
 	font-family: 'Carrois Gothic', sans-serif;
 	color:  #8abeb7;
 	text-decoration: none;
-	font-size: 1em;
 }
 
 .nav.top a:hover {

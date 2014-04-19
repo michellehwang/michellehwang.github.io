@@ -1,21 +1,8 @@
-html {
-	background: url("../img/escheresque_ste.png") repeat; 
-}
-
-#title_page {
-	height: 100%;
-	background: url("../img/light_grey.png") repeat fixed;
-}
-
-#name {
-	color: black;
-	font-family: 'Carrois Gothic', sans-serif, bold;
-	font-size: 4em;
-}
-
 body {
-	/*margin: 0;*/
+	background: url("../img/escheresque_ste.png") repeat; 
+	z-index: 1;
 }
+
 
 #header {
 	color: white;
@@ -66,7 +53,7 @@ body {
 .nav.top {
 	text-align: right;
 	top: .1em;
-	right: 0em;
+	right: .1em;
 	padding: 1%;
 	border-radius: 5%;
 	position: fixed;

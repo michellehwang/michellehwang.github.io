@@ -1,0 +1,70 @@
+<html class="tutorial">
+    <link rel="shortcut icon" href="img/triangle.ico">
+    <script src="js/csi.min.js" type="text/javascript"></script> 
+    <link rel="stylesheet" href="css/site.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/autossh.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="styles/rainbow.css">
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/fantasque-sans-mono" rel="stylesheet" type="text/css"/>
+    <script src="js/tracking.js" type="text/javascript"></script>
+
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+<head>
+    <span id="title">
+    How to Setup Automatic SSH, a tutorial
+    </span><br> (logging into your class account without a password!)
+</head>
+<br><br>
+<body>
+Sick of having to type in both <code>ssh cs61a-XX@star.cs.berkeley.edu</code> and your password everytime you need to login to your class account from your laptop? Here's a short tutorial that can allow you to automatically ssh into your class account (without a password).<br><br>
+There are two parts!
+<ul>Part 1: Getting rid of typing your password so you can type <code>ssh LOGIN@SERVER</code> and <code>scp FILE LOGIN@SERVER:</code> to login and scp your files to your server without a password</ul>
+<ul>Part 2: Creating a shortcut "alias" for yor LOGIN@SERVER so you can just type <code>ssh SHORTCUT</code> and <code>scp FILE SHORTCUT</code></ul>
+
+Let's get started!<br><br>
+<h2>Part 1: getting rid of that password typin' business.</h2>
+from your terminal, enter<pre><code>cd ~/.ssh
+</pre></code>
+<br>
+** If you don't have a <code>.ssh</code> directory, make one by typing <code>"mkdir ./ssh"</code>
+once you're inside your <code>~/.ssh</code> directory, <code>ls</code> to see the contents.
+If you see a NAME and NAME.pub file within your directory already, you can skip the next step (This means you already have a private and public key generated that you can use)
+<br><br>
+if there is nothing in your <code>~/.ssh</code> directory, we need to generate a private/public key, which you can do by typing <pre><code>ssh-keygen</pre></code>
+This will generate you a private and public key pair inside your <code>.ssh</code> directory.
+type <code>ls</code> once more to view your directory.
+
+you should see two files NAME and NAME.pub. NAME is your private key and NAME.pub is your public key. Most likely, you should expect to see id_rsa and id_rsa.pub.
+
+Once you've done this, you're ready to authorize your public key on your class account. 
+You can now type the following into your terminal <pre><code>cat ~/.ssh/NAME.pub | ssh LOGIN@SERVER "cat >> ~/.ssh/authorized_keys"</pre></code>
+*** NOTE: If you encounter errors, you should type this out yourself. Sometimes wonky things happen with quotations copied and pasted in.
+<br><br>
+Replace the uppercase words with the appropriate values
+i.e. NAME --> id_rsa, LOGIN --> cs61a-XX SERVER --> star.cs.berkeley.edu
+Now enter in your password when it prompts you. Now, in the future, you should be able to automatically access your class account without typing in your password!
+
+<h2>Part 2: creating a shortcut for your login</h2>
+Now, let's shorten <code>ssh cs61a-XX@star.cs.berkeley.edu</code> to just <code>ssh cs61a</code>
+from your ~/.ssh directory, we're going to create a <code>config</code> file.
+first, type <code>vim config</code> within your ssh directory.
+This will open up the text editor vim within your terminal. From here, you can press "i" to put you into INSERT mode. This lets you edit the file. 
+Type the following into your file<pre><code>Host cs61a
+    Hostname star.cs.berkeley.edu
+    User cs61a-XX
+</pre></code>
+Then press "ESC" and type ":wq". This saves and quits vim.
+Now if you type <code>ls</code> you should see config, id_rsa, and id_rsa.pub in your <code>~/.ssh</code> directory. Or something along the lines of this:
+<pre><code>[15:26:44] michellehwang:~/.ssh $ ls 
+config id_rsa id_rsa.pub known_hosts
+</pre></code>
+And you're set! Now you can just type "ssh cs61a" and you'll automatically be logged into your class account from your terminal.
+
+Now, you can copy files and whatnot to and from your class account like this:
+to copy files TO your class account:
+<pre><code>scp FILE_NAME cs61a:</code></pre>
+
+to copy files FROM your class account:
+<pre><code>scp cs61a:PATH .</code></pre>
+</body>
+</html>

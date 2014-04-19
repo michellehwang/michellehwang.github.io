@@ -3,6 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link rel="shortcut icon" href="../img/triangle.ico">
     <link rel="stylesheet" type="text/css" href="../css/cs61a.css">
+    <link rel="stylesheet" type="text/css" href="../css/title.css">
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script> 
     <script src="../js/jquery.localscroll-1.2.7-min.js" type="text/javascript"></script> 
     <script src="../js/jquery.scrollTo-1.4.3.1-min.js" type="text/javascript"></script> 
@@ -10,12 +11,15 @@
     <!-- fonts -->
     <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/fantasque-sans-mono" rel="stylesheet" type="text/css"/>
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
     <!-- end fonts -->
 
     <script src="../js/csi.min.js" type="text/javascript"></script> 
-    <script src="../js/cs61a.js" type="text/javascript"></script> 
     <link rel="stylesheet" href="../styles/rainbow.css">
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/cs61a.js" type="text/javascript"></script> 
+    <script src="../js/tracking.js" type="text/javascript"></script> 
     
     <span id="hack">
     </span>
@@ -35,16 +39,99 @@
     <a href="#identity-equality">identity & equality</a><br>
 </div>
 
-<!-- <div id="title_page">
-    <div id="name">CS61A</div>
+<div id="title_page">
+    <div id="internal">
+<!--     <section id="top" name="header">
+            <div id="teaching-info">
+                <div id="header">
+                    <div class="data" id="teaching-menu">
+                        <div id="name" class="title left medium">CS61A</div><br>
+                        <span id="title">Structure & Interpretation of Computer Programs</span>
+                        SEMESTER:
+                        <span id="sp14" class="semester bold">Spring 2014</span> //
+                        <span id="fa13" class="semester">Fall 2013</span>
+                    </div>
+                </div>
+                <div id="semester-info">
+                    <div id="sp14-info">
+                        <div class="left">
+                            <p class="bold"> EMAIL </p>
+                                cs61a-th@imail.cs.berkeley.edu
+                            
+                            <p class="bold"> PLACES & TIMES </p>
+                                <p class="underline"> office hours </p>
+                                    <ul>
+                                        <li>Tuesdays // 2:30 - 3:30pm // 283E Soda</li>
+                                        <li>Fridays // 11 - 12pm // 283E Soda</li>
+                                    </ul>
+                                <p class="underline"> labs (tuesdays!)</p>
+                                    <ul>
+                                        <li>Lab 029 // 3:30 - 5:00pm // 271 Soda</li>
+                                        <li>Lab 018 // 5:00 - 6:30pm // 273 Soda</li>
+                                    </ul>
+                                    
+                                <p class="underline"> sections (thursdays!)</p>
+                                    <ul>
+                                        <li>Disc 018 // 5:00 - 6:30pm // 2 Evans</li>
+                                    </ul>
+                        </div>
+                        <div class="additional">
+                            <p class="bold"> RESOURCES </p>
+                                <ul>
+                                    <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp14/" class="normal-link">Course Webpage</a></li>
+                                    <li>Marvin's <a href="https://docs.google.com/document/d/1JKX0WhlYuEkYE9Ep7x5Prf22bH7QcznJ_f3ebKvOOos/edit" class="normal-link">MT2 Review</a></li>
+                                    <li>Albert's <a href="http://albertwu.org/cs61a/notes/environments" class="normal-link">Environment Diagram Notes</a></li>
+                                    <li><a href="http://www.markmiyashita.com/cs61a" class="normal-link" target="_blank">Mark Miyashita's CS61A Materials</a></li>
+                                    <li><a href="http://www.albertwu.org/cs61a" class="normal-link" target="_blank">Albert Wu's CS61A Materials</a></li>
+                                    <li><a href="handouts/sp14/EnvDiagramSp14.pdf" class="normal-link">Enviornment Diagram Handout </a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div id="fa13-info" class="hide">
+                        <div class="left">
+                            <p class="bold"> PLACES & TIMES </p>
+                                <p class="underline"> office hours </p>
+                                    <ul>
+                                        <li> Mondays // 4-5pm // 651 Soda</li>
+                                        <li> Thursdays // 4-5pm // 651 Soda
+                                    </ul>
+                                <p class="underline"> labs (tuesdays!)</p>
+                                    <ul>
+                                        <li> Lab 028 // 6:30pm - 8:00pm // 275 Soda </li>
+                                    </ul>
+                                    
+                                <p class="underline"> sections (thursdays!)</p>
+                                    <ul>
+                                        <li> Disc 119 // 12:30pm - 2:00pm // 9 Evans </li>
+                                        <li> Disc 128 // 6:30pm - 8:00pm // 71 Evans </li>
+                                    </ul>
+
+                        </div>
+                        <div class="additional">
+                            <p class="bold"> RESOURCES </p>
+                                <ul>
+                                    <li><a href="www-inst.eecs.berkeley.edu/~cs61a/fa13/" class="normal-link">Course Webpage</a></li>
+                                    <li><a href="handouts/fa13/env-diagram-notes.pdf" target="_blank" class="normal-link">Environment Diagram Handout</a></li>
+                                    <li><a href="handouts/fa13/oop-notes.pdf" target="_blank" class="normal-link">Object Oriented Programming Handout</a></li>
+                                    <li><a href="handouts/fa13/oop-final-review.pdf" target="_blank" class="normal-link">Object Oriented Programming Final Review</a></li>
+                                    <li><a href="handouts/fa13/identity, equality\,\ and\ mutable\ vals.pdf" target="_blank" class="normal-link">Identity, Equalist, and Mutable Values Final Review</a></li>
+                                    <li><a href="handouts/fa13/practice-materials/practice.html" target="_blank" class="normal-link">Practice Problems and Worksheets</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </section> -->
+    </div>
 </div>
- -->
-<div id="header">
+
+<body>
+<!-- <div id="header">
 <section id="header">
 Here are some practice problems for CS 61A at Berkeley, sorted by topic. 
 </section>
 </div>
-
+ -->
 <section id="control" name="control">
     <div class="topic">control</div>
         <div data-include="/cs61a/questions/control/sum_multiples.html"></div>
@@ -86,15 +173,5 @@ Here are some practice problems for CS 61A at Berkeley, sorted by topic.
 </section>
 
 </body>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-48046456-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+    
 </html>

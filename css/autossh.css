@@ -1,0 +1,17 @@
+html.tutorial {
+    background: url('../img/congruent_pentagon.png');
+}
+
+.tutorial #title {
+    font-size: 2em;
+}
+
+.tutorial body {
+    padding: 2%;
+}
+
+.hljs, code {
+    width: auto;
+    border-radius: 9.0;
+    font-family: 'Fantasque Sans Mono';
+}

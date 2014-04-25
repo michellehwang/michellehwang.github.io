@@ -1,11 +1,11 @@
 body {
-	background: url("../img/escheresque_ste.png") repeat; 
+	background: url("../img/knitting.png") repeat; 
 	z-index: 1;
 }
 
 
 #header {
-	color: white;
+	color: black;
 	font-family: 'Carrois Gothic', sans-serif, bold;
 }
 
@@ -21,7 +21,7 @@ body {
 	font-size: 3em;
 	/*background-color: white;*/
 	/*color: #474949;*/
-	color: white;
+	color: black;
 	opacity: .9;
 }
 

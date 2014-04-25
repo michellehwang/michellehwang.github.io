@@ -1,11 +1,11 @@
 body {
-	background: url("../img/knitting.png") repeat; 
+	background: url("../img/congruent_outline.png") repeat; 
 	z-index: 1;
 }
 
 
 #header {
-	color: black;
+	color: white;
 	font-family: 'Carrois Gothic', sans-serif, bold;
 }
 
@@ -21,7 +21,7 @@ body {
 	font-size: 3em;
 	/*background-color: white;*/
 	/*color: #474949;*/
-	color: black;
+	color: white;
 	opacity: .9;
 }
 

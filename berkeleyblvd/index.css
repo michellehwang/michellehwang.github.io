@@ -11,7 +11,7 @@ html {
 
 .container {
 	height: 100%;
-	padding: 10px;
+	padding: 20px;
 	text-align: center;
 }
 
@@ -30,6 +30,10 @@ span {
 }
 
 .title {
-	font-family: 'Grand Hotel', cursive;
+	font-family: 'Signika', cursive;
 	font-size: 2em;	
+}
+
+.description {
+	font-family: 'Signika';
 }

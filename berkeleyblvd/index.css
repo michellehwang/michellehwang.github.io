@@ -4,11 +4,14 @@ html {
 
 .header {
 	font-family: 'Grand Hotel', cursive;
-	height: 80%;
-	color: grey;
+	height: 100%;
+	color: white;
 	font-size: 2em;
 }
 
+.main {
+	text-align: center;
+}
 .container {
 	height: 100%;
 	padding: 20px;

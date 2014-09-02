@@ -23,7 +23,7 @@ There are two parts!
 <li>Part 2: Creating a shortcut "alias" for your LOGIN@SERVER so you can just type <code>ssh SHORTCUT</code> and <code>scp FILE SHORTCUT</code></li>
 </ul>
 
-Before we launch into things, make sure you're in a proper bash environment. If you're an Windows user, make sure you're either using Git Bash or Cygwin (no Command Prompt here!).<br><br>
+Before we launch into things, make sure you're in a proper bash environment on your personal computer. If you're an Windows user, make sure you're either using Git Bash or Cygwin (no Command Prompt here!).<br><br>
 
 Alright, let's get started!<br><br>
 <h2>Part 1: getting rid of that password typin' business.</h2>
@@ -35,8 +35,7 @@ once you're inside your <code>~/.ssh</code> directory, <code>ls</code> to see th
 If you see a NAME and NAME.pub file within your directory already, you can skip the next step (This means you already have a private and public key generated that you can use)
 <br><br>
 if there is nothing in your <code>~/.ssh</code> directory, we need to generate a private/public key, which you can do by typing <pre><code>ssh-keygen</pre></code>
-This will generate you a private and public key pair inside your <code>.ssh</code> directory.
-type <code>ls</code> once more to view your directory.
+This will generate you a private and public key pair inside your <code>.ssh</code> directory. The script will prompt you to "Enter file in which to save the key", which will generate NAME.pub depending on what you string choose to use for NAME. You may choose to protect this public key with a passphrase. Once you have finished following the prompt, you may type <code>ls</code> once more to view your directory.
 
 you should see two files NAME and NAME.pub. NAME is your private key and NAME.pub is your public key. Most likely, you should expect to see id_rsa and id_rsa.pub.
 

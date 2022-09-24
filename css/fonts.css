@@ -9,3 +9,10 @@ src: url(fonts/DejaVuSansMono.tff);
 font-family: DejaVuMonoBold;
 src: url(fonts/DejaVuSansMono-Bold.tff);
 }
+
+@font-face
+{
+font-family: FjallaOne;
+src: url(fonts/FjallaOne-Regular.tff);
+}
+
